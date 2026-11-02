@@ -10,7 +10,7 @@ legal/
 
 ## Avant la mise en ligne
 1. Renseigner `WEB3FORMS_ACCESS_KEY` dans `assets/js/config.js`. La clé Web3Forms est publique par conception, mais lui associer un domaine autorisé dans le tableau de bord Web3Forms.
-2. Compléter les champs jaunes (`[à compléter…]`) des pages `legal/` : forme juridique, capital social, RCS, adresse du siège, TVA si applicable, garanties de Web3Forms. Puis retirer `<meta name="robots" content="noindex">` de ces pages.
+2. Compléter les champs jaunes (`[à compléter…]`) des pages `legal/` : forme juridique, capital social, RCS, TVA si applicable, garanties de Web3Forms. Puis retirer `<meta name="robots" content="noindex">` de ces pages.
 3. Domaine `layerdoc.fr` : `canonical`, `og:url`, `robots.txt` et `sitemap.xml` sont en place. Reste à ajouter `og:image` (PNG 1200×630).
 4. Activer HTTPS sur `layerdoc.fr` chez l'hébergeur.
 5. Tester un envoi réel du formulaire.
@@ -23,6 +23,3 @@ Puis ouvrir http://localhost:8000.
 
 ## Limites Web3Forms (offre gratuite)
 Sources tierces : environ 250 envois par mois, formulaires et domaines illimités. Une source indique 250 envois au total. À vérifier sur https://web3forms.com/pricing.
-
-## ⚠️ Adresse du siège (mentions légales)
-Une société (SARL) doit publier l'adresse de son siège social (loi LCEN, article 6). Pour ne pas afficher une adresse privée, deux options courantes : une **domiciliation commerciale** (adresse de société de domiciliation) ou, si l'activité le permet, un local professionnel. Faites valider ce point par votre expert-comptable ou un juriste. Ne publiez pas le site avec le champ jaune restant.
