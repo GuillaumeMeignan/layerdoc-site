@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><rect width="120" height="120" rx="26" fill="#fbfbfd"/><g transform="translate(60 60) scale(.86) translate(-60 -62)"><path d="M12 82 L60 108 L108 82" fill="none" stroke="#1a1830" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 62 L60 88 L108 62" fill="none" stroke="#b4a8ff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 16 L108 42 L60 68 L12 42 Z" fill="#5b3df5" stroke="#5b3df5" stroke-width="12" stroke-linejoin="round"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <title>Layerdoc</title>
+  <rect width="120" height="120" rx="26" fill="#1A1830"/>
+  <g transform="translate(12 10.4) scale(0.8)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 82 L60 108 L108 82" fill="none" stroke="#ECEBF6" stroke-width="12"/>
+    <path d="M12 62 L60 88 L108 62" fill="none" stroke="#B4A8FF" stroke-width="12"/>
+    <path d="M60 16 L108 42 L60 68 L12 42 Z" fill="#7C64FF" stroke="#7C64FF" stroke-width="12"/>
+  </g>
+</svg>
