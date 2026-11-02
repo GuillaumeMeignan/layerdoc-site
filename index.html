@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layerdoc — La documentation de vos données collectées</title>
+<meta name="description" content="Layerdoc décrit ce que vos sites envoient et ce que chaque outil reçoit : dataLayer, mesure d'audience, publicité, consentement. Une documentation claire, multi-sites, avec recherche et export PDF.">
+<meta name="theme-color" content="#5b3df5">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Layerdoc">
+<meta property="og:title" content="Layerdoc — La documentation de vos données collectées">
+<meta property="og:description" content="Une référence unique, lisible par toute l'équipe : ce que vos sites envoient, ce que chaque outil reçoit, avec quel consentement.">
+<meta name="twitter:card" content="summary">
+<link rel="preload" href="assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<!-- Sprite d'icônes -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-sites" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v5M15 4v5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-sheet" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></symbol>
+  <symbol id="i-plan" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="8" cy="9" r="1.6"/><circle cx="15" cy="13" r="1.6"/><path d="M8 21h8"/></symbol>
+  <symbol id="i-schema" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="6" rx="1.5"/><rect x="14" y="15" width="7" height="6" rx="1.5"/><path d="M6.5 9v4a2 2 0 0 0 2 2H14"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+  <symbol id="i-write" viewBox="0 0 24 24"><path d="M4 20h4L17 11a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M19 3l.7 1.8 1.8.7-1.8.7L19 8l-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M18 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-5.4A8 8 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14.5h4"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 7V3M15 7V3M7 7h10v4a5 5 0 0 1-10 0z"/><path d="M12 16v5"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-7.8-9-7.8z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="7.5" r="1"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M17 11l2 2 3.5-3.5"/></symbol>
+</svg>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<!-- 1. MENU -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="#top" aria-label="Layerdoc, retour en haut de page">
+      <svg width="30" height="30" viewBox="0 0 120 120" aria-hidden="true"><path d="M12 82 L60 108 L108 82" fill="none" stroke="#1a1830" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 62 L60 88 L108 62" fill="none" stroke="#b4a8ff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 16 L108 42 L60 68 L12 42 Z" fill="#5b3df5" stroke="#5b3df5" stroke-width="12" stroke-linejoin="round"/></svg>
+      <span class="brand__name">Layer<span>doc</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#enterprise">Enterprise</a>
+      <a href="#offres">Offres</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="site-header__actions">
+      <!-- ⚠️ Libellé modifié (maquette : « Code source ») : le code n'est pas publié -->
+      <a class="btn btn--soft" href="#formulaire" data-prefill="waitlist" data-track="menu-liste-attente">Liste d'attente</a>
+      <a class="btn btn--primary btn--sm" href="#formulaire" data-prefill="demo" data-track="menu-demo">Demander une démo</a>
+    </div>
+  </div>
+</header>
+
+<main id="contenu">
+
+<!-- 2. HERO -->
+<section id="top" class="hero container">
+  <!-- ⚠️ Badge adapté (maquette : « Open source · … ») : le code n'est pas encore publié -->
+  <span class="hero__badge">Open source à venir · Documentation du tracking</span>
+  <h1 class="hero__title">La documentation de vos données collectées, <span>lisible par toute l'équipe.</span></h1>
+  <p class="hero__lead">Layerdoc décrit ce que vos sites envoient et ce que chaque outil reçoit : dataLayer, mesure d'audience, publicité, consentement. Vous écrivez en Markdown, Layerdoc publie une documentation claire, multi-sites, avec recherche et export PDF.</p>
+  <div class="hero__cta">
+    <!-- ⚠️ Libellé modifié (maquette : « Démarrer gratuitement ») -->
+    <a class="btn btn--primary btn--lg" href="#formulaire" data-prefill="waitlist" data-track="hero-liste-attente">Rejoindre la liste d'attente</a>
+    <a class="btn btn--dark btn--lg" href="#enterprise" data-track="hero-enterprise">Découvrir Enterprise <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+  <ul class="hero__points">
+    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Version gratuite à venir, auto-hébergée</li>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Un site statique, sans base de données</li>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pensé pour les groupes multi-sites</li>
+  </ul>
+</section>
+
+<!-- Aperçu interactif -->
+<section class="preview container" aria-label="Aperçu de la documentation">
+  <div class="browser">
+    <div class="browser__bar">
+      <div class="browser__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="browser__url">docs-tracking.maison-lumen.fr/google-ads</div>
+    </div>
+    <div class="browser__body">
+      <div class="doc-side">
+        <div class="doc-side__head"><strong>Maison Lumen</strong><span>Documentation du tracking</span></div>
+        <div class="doc-side__search" aria-hidden="true">Rechercher…</div>
+        <div class="doc-side__group"><span class="doc-side__label">Démarrer</span><span>Vue d'ensemble</span><span>Architecture</span></div>
+        <div class="doc-side__group"><span class="doc-side__label">dataLayer</span><span>Pages vues</span><span>Conversions</span><span>Formulaires</span></div>
+        <div class="doc-side__group"><span class="doc-side__label">Outils</span><span>Piano Analytics</span><span class="is-active">Google Ads</span><span>Meta Ads</span><span>Kameleoon</span></div>
+        <div class="doc-side__group"><span class="doc-side__label">Parcours</span><span>Page d'accueil</span><span>Prise de rendez-vous</span></div>
+      </div>
+      <div class="doc-main">
+        <div class="doc-main__crumb">Outils · Publicité</div>
+        <div class="doc-main__title">Google Ads</div>
+        <p class="doc-main__text">Plateforme publicitaire de Google. Elle mesure les conversions issues des campagnes payantes et alimente les audiences de remarketing.</p>
+        <dl class="facts">
+          <div><dt>Collecte</dt><dd>Navigateur + serveur</dd></div>
+          <div><dt>Consentement</dt><dd><span class="badge badge--c4">C0004 · Publicité</span></dd></div>
+          <div><dt>Données personnelles</dt><dd>E-mail et téléphone hachés</dd></div>
+          <div><dt>Compte</dt><dd><code>AW-000000000</code></dd></div>
+        </dl>
+        <div class="tabs" role="tablist" aria-label="Choisir un site" data-tabs>
+          <button type="button" role="tab" id="tab-fr" aria-controls="panel-fr" aria-selected="true">Lumen France</button>
+          <button type="button" role="tab" id="tab-be" aria-controls="panel-be" aria-selected="false" tabindex="-1">Lumen Belgique</button>
+          <button type="button" role="tab" id="tab-es" aria-controls="panel-es" aria-selected="false" tabindex="-1">Lumen Espagne</button>
+        </div>
+        <div class="table-wrap">
+          <div role="tabpanel" id="panel-fr" aria-labelledby="tab-fr">
+            <table class="events">
+              <thead><tr><th scope="col">Conversion</th><th scope="col">Événement dataLayer</th><th scope="col">Statut</th></tr></thead>
+              <tbody>
+                <tr><td>Prise de rendez-vous</td><td><code>appointment_confirmed</code></td><td><span class="badge badge--ok">Actif</span></td></tr>
+                <tr><td>Demande de devis</td><td><code>quote_request</code></td><td><span class="badge badge--ok">Actif</span></td></tr>
+                <tr><td>Conversions améliorées</td><td><code>user_data</code></td><td><span class="badge badge--ok">Actif</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div role="tabpanel" id="panel-be" aria-labelledby="tab-be" hidden>
+            <table class="events">
+              <thead><tr><th scope="col">Conversion</th><th scope="col">Événement dataLayer</th><th scope="col">Statut</th></tr></thead>
+              <tbody>
+                <tr><td>Prise de rendez-vous</td><td><code>appointment_confirmed</code></td><td><span class="badge badge--ok">Actif</span></td></tr>
+                <tr><td>Demande de devis</td><td><code>quote_request</code></td><td><span class="badge badge--ok">Actif</span></td></tr>
+                <tr><td>Conversions améliorées</td><td><code>user_data</code></td><td><span class="badge badge--ko">En pause</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div role="tabpanel" id="panel-es" aria-labelledby="tab-es" hidden>
+            <table class="events">
+              <thead><tr><th scope="col">Conversion</th><th scope="col">Événement dataLayer</th><th scope="col">Statut</th></tr></thead>
+              <tbody>
+                <tr><td>Prise de rendez-vous</td><td><code>appointment_confirmed</code></td><td><span class="badge badge--ok">Actif</span></td></tr>
+                <tr><td>Demande de devis</td><td><code>quote_request</code></td><td><span class="badge badge--warn">À vérifier</span></td></tr>
+                <tr><td>Conversions améliorées</td><td><code>user_data</code></td><td><span class="badge badge--ko">Inactif</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="doc-main__foot">État en production au 26/10/2026 · GTM web v441 · GTM serveur v87</div>
+      </div>
+    </div>
+  </div>
+  <p class="preview__note">Exemple fictif. Cliquez sur un site : le tableau s'adapte.</p>
+</section>
+
+<!-- 3. CONSTAT -->
+<section class="band">
+  <div class="container stack-lg">
+    <div class="section-head section-head--narrow">
+      <span class="eyebrow">Le constat</span>
+      <h2 class="h2">Le tracking est partout, sauf au même endroit.</h2>
+    </div>
+    <div class="grid grid--260">
+      <article class="card card--pain">
+        <div class="card__tag">❌ Dans Google Tag Manager</div>
+        <h3>Des centaines de balises, lisibles par les seuls experts.</h3>
+        <p>Les équipes métier ne savent pas ce qui est réellement en production.</p>
+      </article>
+      <article class="card card--pain">
+        <div class="card__tag">❌ Dans un fichier Excel</div>
+        <h3>Un plan de marquage figé, rarement à jour.</h3>
+        <p>Il décrit ce qui était prévu à la recette, pas ce qui tourne aujourd'hui.</p>
+      </article>
+      <article class="card card--pain">
+        <div class="card__tag">❌ Dans la tête de quelqu'un</div>
+        <h3>Quand l'agence ou le consultant change, la connaissance part avec.</h3>
+        <p>Chaque nouvelle demande recommence par un audit.</p>
+      </article>
+    </div>
+    <div class="callout">
+      <svg class="icon" aria-hidden="true" style="stroke-width:2.6"><use href="#i-check"/></svg>
+      <p><strong>Layerdoc réunit tout dans une référence unique</strong>, qui décrit l'état réellement en production, site par site, outil par outil.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCES -->
+<section class="container section stack-lg">
+  <div class="section-head section-head--narrow">
+    <span class="eyebrow">Pour qui</span>
+    <h2 class="h2">Une référence commune, une réponse par métier.</h2>
+    <p class="lead">Chaque page suit le même fil : du plus général au plus technique. Chacun s'arrête où il a sa réponse.</p>
+  </div>
+  <div class="grid grid--210">
+    <article class="card card--plain"><h3>Produit &amp; développeurs</h3><p>« Quelles données dois-je pousser dans le dataLayer, et quand ? »</p></article>
+    <article class="card card--plain"><h3>Acquisition &amp; agences</h3><p>« Mon pixel est-il actif sur ce site, avec quelles conversions ? »</p></article>
+    <article class="card card--plain"><h3>CRO</h3><p>« Quels événements puis-je utiliser pour mes tests A/B ? »</p></article>
+    <article class="card card--plain"><h3>Data &amp; analytics</h3><p>« Quelle propriété, quelle valeur attendue, sur quelle page ? »</p></article>
+    <article class="card card--plain"><h3>Conformité &amp; DPO</h3><p>« Quel outil se déclenche, avec quel consentement ? »</p></article>
+  </div>
+</section>
+
+<!-- FONCTIONNALITÉS OPEN SOURCE -->
+<section id="fonctionnalites" class="container section section--tight-top stack-lg">
+  <div class="section-head section-head--narrow">
+    <span class="eyebrow">Inclus dans l'open source</span>
+    <h2 class="h2">Tout ce qu'il faut pour documenter, dès la version gratuite.</h2>
+  </div>
+  <div class="grid grid--250 grid--features">
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><h3>Markdown, versionné dans Git</h3><p>Une page = un fichier. Le menu se construit tout seul, l'historique reste dans Git.</p></article>
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-sites"/></svg><h3>Multi-sites natif</h3><p>Un onglet ou une colonne par site : les différences restent dans la même page. Le choix du site est mémorisé.</p></article>
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><h3>Consentement visible partout</h3><p>Chaque outil et chaque événement porte son badge : exempté, performance ou publicité.</p></article>
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-sheet"/></svg><h3>Fiches outils standardisées</h3><p>Même fil de lecture pour chaque outil : rôle, collecte, sites actifs, données envoyées, conformité.</p></article>
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-plan"/></svg><h3>Plans de marquage par parcours</h3><p>Une capture repérée par des numéros et le tableau des événements, page par page.</p></article>
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-schema"/></svg><h3>Schémas d'architecture</h3><p>Flux navigateur, serveur et consentement, lisibles en thème clair comme en sombre.</p></article>
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><h3>Recherche instantanée</h3><p>Une page autonome par client, menu et recherche plein texte inclus.</p></article>
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><h3>Export PDF en un clic</h3><p>Une version imprimable avec couverture et sommaire, générée directement depuis la documentation.</p></article>
+  </div>
+</section>
+
+<!-- MARKDOWN -> RENDU -->
+<section class="container section section--tight-top" aria-labelledby="md-title">
+  <div class="md">
+    <div class="md__intro">
+      <h2 id="md-title" class="h2 h2--sm">Vous écrivez du texte. Layerdoc s'occupe du reste.</h2>
+      <p class="lead lead--sm">Une syntaxe courte pour les fiches, les onglets par site et les encadrés « À vérifier ». Un point non confirmé n'est jamais présenté comme un fait.</p>
+      <div class="cmds"><span>npm run new -- mon-client</span><span>npm run dev</span><span>npm run build</span></div>
+    </div>
+    <div class="md__code">
+      <div class="md__file">pages/meta-ads.md</div>
+<pre>---
+title: Meta Ads
+group: Outils
+---
+
+::: meta
+- **Collecte** : navigateur + serveur
+- **Consentement** : C0004 Publicité
+:::
+
+:::: tabs
+=== site-fr
+Pixel et API Conversions actifs.
+=== site-be
+Pixel actif, sans API Conversions.
+::::</pre>
+    </div>
+    <div class="md__render">
+      <div class="doc-main__crumb">Outils</div>
+      <div class="md__render-title">Meta Ads</div>
+      <dl class="kv">
+        <div><dt>Collecte</dt><dd>Navigateur + serveur</dd></div>
+        <div><dt>Consentement</dt><dd><span class="badge badge--c4">C0004 · Publicité</span></dd></div>
+      </dl>
+      <div class="mini-tabs" aria-hidden="true"><span class="is-active">Site FR</span><span>Site BE</span></div>
+      <p>Pixel et API Conversions actifs.</p>
+      <div class="check-note"><strong>⚠️ À vérifier</strong><span>Déduplication navigateur / serveur.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ENTERPRISE -->
+<section id="enterprise" class="section--dark">
+  <div class="container ent">
+    <div class="ent__head">
+      <span class="eyebrow eyebrow--dark">Layerdoc Enterprise</span>
+      <h2 class="h2 h2--lg">La même documentation, prête pour toute l'organisation.</h2>
+      <p class="ent__lead">Rédigée avec l'IA, commentée en équipe, hébergée à vos couleurs et interrogeable par vos outils. Vos équipes et vos agences y trouvent la réponse sans vous solliciter.</p>
+      <!-- ⚠️ Libellé à valider avec Guillaume -->
+      <p class="ent__status"><span class="pill pill--warn">En cours de développement</span> Les fonctions Enterprise présentées ici sont en cours de conception. Les écrans sont des illustrations.</p>
+    </div>
+
+    <!-- 01 -->
+    <div class="group">
+      <div class="group__title"><span>01 · Rédiger et collaborer</span><i></i></div>
+      <div class="grid grid--330">
+        <article class="ecard">
+          <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-write"/></svg>Rédaction assistée par IA</h3>
+          <p class="ecard__text">Dans l'éditeur sans code, décrivez en une phrase ce qu'il faut documenter. L'IA rédige la page et signale ce qu'elle ne peut pas confirmer. Vous relisez avant de publier.</p>
+          <div class="mock" aria-hidden="true">
+            <div class="mock__bar"><span class="mock__crumb">Conversions / <strong>Prise de rendez-vous</strong></span><span class="pill">Brouillon</span></div>
+            <div class="mock__body">
+              <div class="prompt"><svg class="icon"><use href="#i-sparkle"/></svg><span>Explique l'événement de prise de rendez-vous en magasin</span><b>Rédiger</b></div>
+              <div class="ai-box">
+                <span class="ai-box__tag"><svg class="icon"><use href="#i-sparkle"/></svg>Proposition de l'IA</span>
+                <div class="ai-box__title">Prise de rendez-vous</div>
+                <p>Cet événement est envoyé quand un visiteur <strong>confirme son rendez-vous en magasin</strong>. Il mesure la conversion clé du site.</p>
+                <div class="chips"><span class="chip">Piano Analytics<span class="badge badge--ok">Exempté</span></span><span class="chip">Google Ads<span class="badge badge--c4">C0004</span></span></div>
+                <div class="todo"><strong>À vérifier :</strong> la date de mise en production de cet événement n'est pas indiquée dans vos sources.</div>
+              </div>
+              <div class="actions"><span class="actions__main">Insérer dans la page</span><span>Reformuler</span><span>Raccourcir</span><span>Régénérer</span></div>
+            </div>
+          </div>
+        </article>
+        <article class="ecard">
+          <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-chat"/></svg>Commentaires et fils de discussion</h3>
+          <p class="ecard__text">Une question sur un passage ? Commentez-le dans la page. Votre équipe et vos agences répondent dans le même fil, qui se clôt une fois le sujet réglé.</p>
+          <div class="mock" aria-hidden="true">
+            <div class="mock__bar"><span class="mock__crumb">Conversions / <strong>Prise de rendez-vous</strong></span><span class="pill pill--warn">1 fil ouvert</span></div>
+            <div class="mock__body mock__body--row">
+              <div class="thread-page">
+                <div class="ai-box__title">Prise de rendez-vous</div>
+                <p>Cet événement est envoyé quand un visiteur confirme son rendez-vous en magasin. Il mesure la conversion clé du site.</p>
+                <p>Il alimente Piano Analytics et <mark>Google Ads</mark>, qui attend le groupe <strong>C0004</strong>.</p>
+              </div>
+              <div class="thread">
+                <span class="thread__arrow"></span>
+                <div class="msg"><svg class="avatar" width="34" height="34" viewBox="0 0 34 34"><rect width="34" height="34" fill="#d8d0ff"/><circle cx="17" cy="13" r="6" fill="#5b3df5"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#5b3df5"/></svg><div><div class="msg__who"><strong>Marie</strong><span>Agence média · il y a 2 h</span></div><span>Cet événement part-il aussi vers Meta ?</span></div></div>
+                <div class="msg"><svg class="avatar" width="34" height="34" viewBox="0 0 34 34"><rect width="34" height="34" fill="#c9ecdd"/><circle cx="17" cy="13" r="6" fill="#0b6b4c"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#0b6b4c"/></svg><div><div class="msg__who"><strong>Karim</strong><span>Data · il y a 1 h</span></div><span><span class="mention">@Marie</span> Non, seulement Google Ads pour l'instant. Je complète la page.</span></div></div>
+                <div class="reply"><span>Répondre…</span><b>Résoudre</b></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="group">
+      <div class="group__title"><span>02 · Interroger</span><i></i></div>
+      <div class="grid grid--330">
+        <article class="ecard">
+          <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-sparkle"/></svg>Recherche assistée par IA</h3>
+          <p class="ecard__text">Posez une question en français. La réponse cite les pages sources, pour vérifier en un clic.</p>
+          <div class="mock mock--pad" aria-hidden="true">
+            <div class="ask"><svg class="icon" style="color:var(--slate)"><use href="#i-search"/></svg>Quels outils se déclenchent sans consentement ?</div>
+            <p class="answer">Deux éléments sont <strong>exemptés</strong> : Piano Analytics, pour la mesure d'audience, et les balises techniques de Google Tag Manager. Toutes les plateformes publicitaires attendent le groupe <strong>C0004</strong>.</p>
+            <div class="sources"><span>Consentement</span><span>Piano Analytics</span><span>Google Tag Manager</span></div>
+          </div>
+        </article>
+        <article class="ecard">
+          <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-plug"/></svg>Serveur MCP</h3>
+          <p class="ecard__text">Branchez votre documentation à Claude, ChatGPT, Cursor ou tout client compatible MCP. Vos assistants répondent à partir de votre tracking réel.</p>
+          <pre class="codebox" aria-label="Exemple de configuration MCP">"layerdoc": {
+  "url": "https://docs.votre-site.fr/mcp"
+}</pre>
+          <div class="chat" aria-hidden="true">
+            <div class="chat__user">Quel événement mesure la prise de rendez-vous ?</div>
+            <div class="chat__bot">L'événement <code>appointment_confirmed</code>, poussé à l'affichage de la confirmation. Il alimente Piano Analytics et Google Ads. <span>Source : Conversions</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="group">
+      <div class="group__title"><span>03 · Diffuser à votre image</span><i></i></div>
+      <div class="grid grid--330">
+        <article class="ecard">
+          <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-globe"/></svg>Hébergement au choix</h3>
+          <p class="ecard__text">Sur votre propre domaine grâce à un simple enregistrement CNAME, ou sur notre plateforme. HTTPS et mises à jour inclus.</p>
+          <div class="hosts">
+            <div class="host"><span>docs-tracking.votre-site.fr</span><b class="host__tag host__tag--ok">Votre domaine · CNAME</b></div>
+            <div class="host"><span>votre-marque.layerdoc.app</span><b class="host__tag">Hébergé par Layerdoc</b></div>
+          </div>
+        </article>
+        <article class="ecard">
+          <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-palette"/></svg>Marque blanche</h3>
+          <p class="ecard__text">Votre logo, vos couleurs, votre typographie. La documentation devient un outil interne. Essayez :</p>
+          <div class="swatches" role="group" aria-label="Couleur de la marque" data-swatches>
+            <button type="button" class="swatch" data-color="#5b3df5" aria-label="Violet" aria-pressed="true" style="--c:#5b3df5"></button>
+            <button type="button" class="swatch" data-color="#0f766e" aria-label="Vert canard" aria-pressed="false" style="--c:#0f766e"></button>
+            <button type="button" class="swatch" data-color="#c2410c" aria-label="Orange brûlé" aria-pressed="false" style="--c:#c2410c"></button>
+            <button type="button" class="swatch" data-color="#1d4ed8" aria-label="Bleu" aria-pressed="false" style="--c:#1d4ed8"></button>
+            <button type="button" class="swatch" data-color="#be185d" aria-label="Framboise" aria-pressed="false" style="--c:#be185d"></button>
+          </div>
+          <div class="mock brand-mock" data-brand-mock aria-hidden="true">
+            <div class="brand-mock__bar"><span class="brand-mock__logo"></span><b>Votre marque</b><span>Documentation du tracking</span></div>
+            <div class="brand-mock__body">
+              <div class="brand-mock__nav"><span>Vue d'ensemble</span><span class="is-active">Conversions</span><span>Consentement</span></div>
+              <div class="brand-mock__page"><div class="brand-mock__title">Conversions</div><i style="width:90%"></i><i style="width:70%"></i><span class="brand-mock__btn">Télécharger en PDF</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="group">
+      <div class="group__title"><span>04 · Organiser</span><i></i></div>
+      <article class="ecard ecard--wide">
+        <div class="ecard__side">
+          <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-grid"/></svg>Hub multi-documentations</h3>
+          <p class="ecard__text">Votre organisation ne se gère pas d'un seul bloc ? Réunissez plusieurs documentations derrière une seule adresse : une par périmètre, chacune avec ses pages, ses règles et ses accès.</p>
+        </div>
+        <div class="hub" aria-hidden="true">
+          <div class="hub__item"><span>Documentation 1</span><b>Sites France</b><p>Collecte, consentement et parcours des sites principaux.</p></div>
+          <div class="hub__item"><span>Documentation 2</span><b>Sites export</b><p>Une documentation propre aux pays, avec ses particularités.</p></div>
+          <div class="hub__item"><span>Documentation 3</span><b>Sites BtoB</b><p>Gérée à part, avec ses propres règles et ses propres accès.</p></div>
+        </div>
+      </article>
+    </div>
+
+    <!-- 05 -->
+    <div class="group">
+      <div class="group__title"><span>05 · Gouverner</span><i></i></div>
+      <article class="ecard ecard--wide">
+        <div class="ecard__side">
+          <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-user"/></svg>Gestion des accès</h3>
+          <p class="ecard__text">Connexion SSO, rôles lecteur, éditeur et administrateur. Une agence ne voit que les sites qu'elle gère.</p>
+        </div>
+        <div class="access mock" aria-hidden="true">
+          <div class="mock__bar"><b>Accès à la documentation</b><span class="pill">Connexion SSO</span></div>
+          <div class="access__row"><svg class="avatar" width="30" height="30" viewBox="0 0 34 34"><rect width="34" height="34" fill="#d8d0ff"/><circle cx="17" cy="13" r="6" fill="#5b3df5"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#5b3df5"/></svg><b>Marie · Agence média</b><span class="badge badge--violet">Lecteur</span><span class="access__scope">Sites France uniquement</span></div>
+          <div class="access__row"><svg class="avatar" width="30" height="30" viewBox="0 0 34 34"><rect width="34" height="34" fill="#c9ecdd"/><circle cx="17" cy="13" r="6" fill="#0b6b4c"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#0b6b4c"/></svg><b>Karim · Data</b><span class="badge badge--ok">Éditeur</span><span class="access__scope">Toutes les documentations</span></div>
+          <div class="access__row"><svg class="avatar" width="30" height="30" viewBox="0 0 34 34"><rect width="34" height="34" fill="#ffd9b8"/><circle cx="17" cy="13" r="6" fill="#8a4200"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#8a4200"/></svg><b>Sophie · Direction</b><span class="badge badge--c4">Administrateur</span><span class="access__scope">Toutes les documentations</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5. ACCOMPAGNEMENT -->
+<section id="accompagnement" class="support">
+  <div class="container support__inner">
+    <div class="support__text">
+      <span class="eyebrow">Accompagnement</span>
+      <h2 class="h2">Pas le temps de documenter ? On le fait pour vous.</h2>
+      <p class="lead">Nous reprenons votre existant, rédigeons votre documentation de A à Z et la tenons à jour. Vous gardez la main sur la relecture.</p>
+      <a class="btn btn--primary" href="#formulaire" data-prefill="project" data-track="accompagnement-projet">Parler de votre projet</a>
+    </div>
+    <ol class="steps">
+      <li><span class="steps__n">1</span><div><b>Reprise de l'existant</b><span>Plans de marquage, conteneurs GTM, tableurs : nous partons de ce que vous avez déjà.</span></div></li>
+      <li><span class="steps__n">2</span><div><b>Rédaction de A à Z</b><span>Pages, parcours, consentement : nous rédigeons et validons avec vos équipes.</span></div></li>
+      <li><span class="steps__n">3</span><div><b>Mise à jour continue</b><span>Quand le tracking évolue, la documentation suit.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. OFFRES -->
+<section id="offres" class="container offers">
+  <div class="section-head section-head--center">
+    <span class="eyebrow">Offres</span>
+    <h2 class="h2">Deux façons d'utiliser Layerdoc.</h2>
+    <p class="lead">Le contenu est le même dans les deux versions : vous passez de l'une à l'autre sans rien réécrire.</p>
+  </div>
+  <div class="offers__grid">
+    <article class="offer">
+      <div class="offer__head"><h3>Open source</h3><div class="offer__price">Gratuit</div><p>Pour les consultants et les équipes techniques qui gèrent leur propre hébergement.</p></div>
+      <a class="btn btn--outline" href="#formulaire" data-prefill="waitlist" data-track="offre-liste-attente">S'inscrire sur liste d'attente</a>
+      <ul class="ticks">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pages en Markdown, versionnées dans Git</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Multi-sites avec onglets et variables par site</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Badges de consentement et encadrés « À vérifier »</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Modèles de fiches outils et de parcours</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Recherche plein texte, thème clair et sombre</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Export PDF en un clic</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Site statique, à héberger où vous voulez</li>
+        <!-- ⚠️ Ligne « Licence [VOTRE LICENCE] » retirée tant que la licence n'est pas choisie -->
+      </ul>
+    </article>
+    <article class="offer offer--featured">
+      <div class="offer__head"><h3>Enterprise <span class="pill">Multi-sites &amp; agences</span></h3><div class="offer__price">Sur devis</div><p>Pour les marques et les groupes qui partagent leur documentation avec leurs équipes et leurs agences.</p></div>
+      <a class="btn btn--primary" href="#formulaire" data-prefill="demo" data-track="offre-demo">Demander une démo</a>
+      <div class="offer__plus">Tout l'open source, plus :</div>
+      <ul class="ticks ticks--accent">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hébergement sur votre domaine (CNAME) ou chez nous</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Marque blanche : logo, couleurs, typographie</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>SSO, rôles et accès limité par site</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Éditeur sans code, avec relecture avant publication</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Rédaction assistée par IA : l'IA écrit, vous relisez</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Commentaires avec fils de discussion</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hub : plusieurs documentations réunies en un seul endroit</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Recherche assistée par IA, avec sources</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Serveur MCP pour vos LLM</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reprise de l'existant et accompagnement</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="compare">
+    <table>
+      <caption class="visually-hidden">Comparatif détaillé des offres Open source et Enterprise</caption>
+      <thead><tr><th scope="col">Fonction</th><th scope="col">Open source</th><th scope="col" class="is-ent">Enterprise</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Pages Markdown, multi-sites, badges de consentement</th><td>✓</td><td>✓</td></tr>
+        <tr><th scope="row">Recherche plein texte</th><td>✓</td><td>✓</td></tr>
+        <tr><th scope="row">Export PDF en un clic</th><td>✓</td><td>✓</td></tr>
+        <tr><th scope="row">Hub multi-documentations</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">Hébergement</th><td>À votre charge</td><td>CNAME ou SaaS</td></tr>
+        <tr><th scope="row">Marque blanche</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">SSO, rôles, accès par site</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">Éditeur sans code et relecture</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">Rédaction assistée par IA</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">Commentaires et fils de discussion</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">Recherche assistée par IA</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">Serveur MCP</th><td>—</td><td>✓</td></tr>
+        <tr><th scope="row">Accompagnement</th><td>Communauté</td><td>Dédié</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section id="faq" class="faq">
+  <div class="faq__inner">
+    <h2 class="h2">Questions fréquentes</h2>
+    <div class="faq__list">
+      <details><summary>Layerdoc collecte-t-il des données sur mon site ?<span class="chev" aria-hidden="true">+</span></summary><p>Non. Layerdoc documente votre configuration, il ne collecte rien. Aucune clé d'API ni secret n'y figure, seulement des identifiants de comptes et de pixels.</p></details>
+      <details><summary>Faut-il savoir coder pour la version open source ?<span class="chev" aria-hidden="true">+</span></summary><p>Il suffit de savoir éditer un fichier texte et lancer trois commandes. La version Enterprise ajoute un éditeur visuel pour les équipes non techniques.</p></details>
+      <details><summary>Quels outils peut-on documenter ?<span class="chev" aria-hidden="true">+</span></summary><p>Tous. Les modèles couvrent la gestion de balises (web et server-side), la mesure d'audience, la publicité, l'A/B testing, la CDP et le consentement.</p></details>
+      <details><summary>Peut-on passer de l'open source à Enterprise ?<span class="chev" aria-hidden="true">+</span></summary><p>Oui. Vos fichiers Markdown sont repris tels quels : rien à réécrire.</p></details>
+      <details><summary>Où est hébergée la version Enterprise ?<span class="chev" aria-hidden="true">+</span></summary>
+        <!-- ⚠️ À valider avec Guillaume : la maquette contient « [À PRÉCISER : pays d'hébergement, prestataire, engagements RGPD.] ». Texte provisoire neutre, sans engagement inventé. -->
+        <p>Vous choisissez : sur votre propre domaine (CNAME) ou sur la plateforme Layerdoc. Le pays d'hébergement, le prestataire et nos engagements RGPD seront précisés avant le lancement.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 8. BLOC FINAL + FORMULAIRE -->
+<section id="formulaire" class="container final">
+  <div class="final__box">
+    <div class="final__text">
+      <h2>Votre tracking mérite mieux qu'un fichier Excel.</h2>
+      <p>Rejoignez la liste d'attente de la version gratuite, ou parlons de votre organisation : démo Enterprise, devis, accompagnement.</p>
+    </div>
+    <div class="final__card">
+      <form id="contact-form" novalidate aria-label="Formulaire de contact" data-track="formulaire-contact">
+        <label class="field"><span>Prénom et nom</span><input type="text" name="nom" required autocomplete="name"></label>
+        <label class="field"><span>E-mail professionnel</span><input type="email" name="email" required autocomplete="email"></label>
+        <label class="field"><span>Message</span><textarea name="message" id="message" rows="5" placeholder="Dites-nous en quelques mots ce dont vous avez besoin."></textarea></label>
+        <label class="consent"><input type="checkbox" name="consentement" required><span>J'accepte que mes informations servent à me recontacter au sujet de Layerdoc, et pour cela seulement. <a href="legal/confidentialite.html">Politique de confidentialité</a>.</span></label>
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div id="form-error" class="form-error" role="alert" hidden></div>
+        <button type="submit" class="btn btn--primary btn--lg form-submit" data-track="formulaire-envoyer">Envoyer ma demande</button>
+      </form>
+      <div id="form-thanks" class="thanks" role="status" tabindex="-1" hidden>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#11845f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16 9.5"/></svg>
+        <div class="thanks__title">Merci, votre demande est bien partie.</div>
+        <p>Nous revenons vers vous par e-mail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- 9. PIED DE PAGE -->
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <span><strong>Layerdoc</strong> · Un projet Kimetrix</span>
+    <nav aria-label="Pied de page">
+      <!-- ⚠️ Maquette : « Documentation » et « Code source » : libellés adaptés -->
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#formulaire" data-prefill="waitlist" data-track="pied-liste-attente">Liste d'attente</a>
+      <a href="#formulaire">Contact</a>
+      <a href="legal/mentions-legales.html">Mentions légales</a>
+      <a href="legal/confidentialite.html">Confidentialité</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
