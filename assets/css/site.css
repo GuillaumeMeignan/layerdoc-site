@@ -326,3 +326,9 @@
   .site-header__actions .btn { flex: 1 1 auto; }
   .brand-mock__nav { flex-basis: 96px; }
 }
+
+/* Pages légales : listes et champs à compléter */
+.legal p, .legal li { color: var(--ink); }
+.legal-list { display: flex; flex-direction: column; gap: var(--s-2); list-style: disc; padding-left: 22px; }
+.ph { background: var(--warn-mark); color: #5e4700; padding: 1px 4px; border-radius: 4px; border-bottom: 2px solid var(--warn-line); }
+.legal a { text-underline-offset: 2px; }

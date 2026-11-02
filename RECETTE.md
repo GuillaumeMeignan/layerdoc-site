@@ -21,9 +21,9 @@ Tests réalisés dans Chromium (Playwright), serveur local, API Web3Forms simul�
 | Formulaire : champs vides | Message clair | OK | ✅ |
 | Anti-spam | Champ `botcheck` caché | Présent | ✅ |
 | Envoi réel Web3Forms | Message reçu par e-mail | Non testé : clé absente, API bloquée dans la session | ⚠️ À valider avec Guillaume |
-| SEO | title, description, Open Graph, favicon | Présents ; pas d'`og:image` ni `og:url` (domaine non choisi) | ⚠️ À valider avec Guillaume |
+| SEO | title, description, Open Graph, favicon | Présents, domaine `layerdoc.fr` (canonical, og:url, robots, sitemap) ; manque `og:image` | ⚠️ À valider avec Guillaume |
 | Licence open source | Ligne retirée | Retirée | ⚠️ À valider avec Guillaume |
 | FAQ hébergement / RGPD | Réponse finale | Texte provisoire neutre | ⚠️ À valider avec Guillaume |
 | Mention « en cours de développement » | Libellé validé | Libellé proposé | ⚠️ À valider avec Guillaume |
-| Pages légales | Texte fourni | Squelettes avec champs à compléter | ⚠️ À valider avec Guillaume |
+| Pages légales | Contenu rédigé, consentement renvoie à la confidentialité | Rédigé ; champs jaunes à compléter (SIRET, adresse, hébergeur, e-mail) | ⚠️ À valider avec Guillaume |
 | Mesure d'audience | Hors périmètre | Attributs `data-track` posés | ✅ |
