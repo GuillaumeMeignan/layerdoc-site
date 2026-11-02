@@ -17,9 +17,9 @@ legal/
 
 ## Tester en local
 ```bash
-python3 -m http.server 8000
+npm run dev
 ```
-Puis ouvrir http://localhost:8000.
+Puis ouvrir http://localhost:8000 (aucune dépendance à installer). Autre option : `python3 -m http.server 8000`.
 
 ## Limites Web3Forms (offre gratuite)
 Sources tierces : environ 250 envois par mois, formulaires et domaines illimités. Une source indique 250 envois au total. À vérifier sur https://web3forms.com/pricing.
