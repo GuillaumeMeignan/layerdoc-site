@@ -1,0 +1,79 @@
+/* Tokens de la charte Layerdoc. Une seule couleur d'accent : le violet. */
+:root {
+  /* Charte */
+  --ink: #1a1830;
+  --violet: #5b3df5;
+  --violet-hover: #3f25c9;
+  --violet-text: #4528d6; /* violet foncé pour texte sur lavande (contraste AA) */
+  --lavande: #ece8ff;
+  --paper: #fbfbfd;
+  --brume: #f3f2f8;
+  --slate: #5f5c78;
+  --violet-light: #7c64ff;
+  --lilac: #b4a8ff;
+  --white: #fff;
+
+  /* Lignes et fonds neutres */
+  --line: #e3e1ee;
+  --line-soft: #efedf5;
+  --line-strong: #c9c5dc;
+  --code-bg: #f1eff9;
+  --tint: #f6f4ff;
+  --tint-line: #ddd6ff;
+
+  /* Surfaces sombres (section Enterprise) */
+  --panel: #242238;
+  --panel-line: #36334f;
+  --panel-deep: #13121c;
+  --on-dark: #ecebf6;
+  --on-dark-muted: #b9b6d3;
+
+  /* Couleurs de sens (fixes) */
+  --ok: #11845f;
+  --ok-bg: #ddf4ea;
+  --ok-fg: #0b6b4c;
+  --ok-bright: #47d3a2;
+  --ok-dark-bg: #163328;
+  --c4-bg: #fdf1e3; /* consentement C0004 */
+  --c4-fg: #8a3f06;
+  --warn-bg: #fff2c7; /* À vérifier */
+  --warn-fg: #6b4600;
+  --warn-mark: #fff1b8;
+  --warn-line: #f2c200;
+  --danger-bg: #fde5df;
+  --danger-fg: #a8351f;
+
+  /* Typographie */
+  --font-title: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  --font-text: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Espacements */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 72px;
+  --s-9: 96px;
+
+  /* Rayons */
+  --r-xs: 5px;
+  --r-sm: 8px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 18px;
+  --r-2xl: 22px;
+  --r-pill: 999px;
+
+  /* Ombres */
+  --shadow-btn: 0 6px 18px rgba(26, 24, 48, 0.14);
+  --shadow-hero: 0 30px 70px -30px rgba(26, 24, 48, 0.35);
+  --shadow-offer: 0 24px 60px -30px rgba(91, 61, 245, 0.45);
+
+  /* Mise en page */
+  --container: 1200px;
+  --gutter: 24px;
+}
