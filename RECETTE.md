@@ -25,5 +25,5 @@ Tests réalisés dans Chromium (Playwright), serveur local, API Web3Forms simul�
 | Licence open source | Ligne retirée | Retirée | ⚠️ À valider avec Guillaume |
 | FAQ hébergement / RGPD | Réponse finale | Texte provisoire neutre | ⚠️ À valider avec Guillaume |
 | Mention « en cours de développement » | Libellé validé | Libellé proposé | ⚠️ À valider avec Guillaume |
-| Pages légales | Contenu rédigé, consentement renvoie à la confidentialité | Rédigé ; SARL, SIRET, OVH, e-mail renseignés ; mentions légales complètes ; seul champ jaune restant : garanties Web3Forms (confidentialité) | ⚠️ À valider avec Guillaume |
+| Pages légales | Contenu rédigé, consentement renvoie à la confidentialité | Rédigé ; SARL, SIRET, OVH, e-mail renseignés ; contenu complet, aucun champ à compléter ; formule prudente sur Web3Forms à vérifier | ⚠️ À valider avec Guillaume |
 | Mesure d'audience | Hors périmètre | Attributs `data-track` posés | ✅ |

@@ -10,7 +10,7 @@ legal/
 
 ## Avant la mise en ligne
 1. Renseigner `WEB3FORMS_ACCESS_KEY` dans `assets/js/config.js`. La clé Web3Forms est publique par conception, mais lui associer un domaine autorisé dans le tableau de bord Web3Forms.
-2. Compléter les champs jaunes (`[à compléter…]`) des pages `legal/` : forme juridique, garanties de Web3Forms. Puis retirer `<meta name="robots" content="noindex">` de ces pages.
+2. Relire les pages `legal/` (texte rédigé, non validé par un juriste). Vérifier la formule sur les transferts hors UE de Web3Forms dans sa documentation RGPD, puis forme juridique, . Puis retirer `<meta name="robots" content="noindex">` de ces pages.
 3. Domaine `layerdoc.fr` : `canonical`, `og:url`, `robots.txt` et `sitemap.xml` sont en place. Reste à ajouter `og:image` (PNG 1200×630).
 4. Activer HTTPS sur `layerdoc.fr` chez l'hébergeur.
 5. Tester un envoi réel du formulaire.
