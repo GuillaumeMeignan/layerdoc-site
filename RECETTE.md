@@ -20,7 +20,7 @@ Tests réalisés dans Chromium (Playwright), serveur local, API Web3Forms simul�
 | Formulaire : succès | Remerciement seulement après réponse positive | OK | ✅ |
 | Formulaire : champs vides | Message clair | OK | ✅ |
 | Anti-spam | Champ `botcheck` caché | Présent | ✅ |
-| Envoi réel Web3Forms | Message reçu par e-mail | Non testé : clé absente, API bloquée dans la session | ⚠️ À valider avec Guillaume |
+| Envoi réel Web3Forms | Message reçu par e-mail | Clé renseignée ; non testé : API Web3Forms bloquée dans cette session. À tester en ligne | ⚠️ À valider avec Guillaume |
 | SEO | title, description, Open Graph, favicon | Présents, domaine `layerdoc.fr` (canonical, og:url, robots, sitemap) ; `og:image` ajoutée | ⚠️ À valider avec Guillaume |
 | Licence open source | Ligne retirée | Retirée | ⚠️ À valider avec Guillaume |
 | FAQ hébergement / RGPD | Réponse finale | Texte provisoire neutre | ⚠️ À valider avec Guillaume |
