@@ -169,7 +169,7 @@
   // Chaque bouton présélectionne le besoin (open-source ou demo) et préremplit le message.
   var PREFILL = {
     waitlist: { need: "open-source", text: "Bonjour, je souhaite m'inscrire sur la liste d'attente de la version gratuite de Layerdoc." },
-    demo: { need: "demo", text: "Bonjour, je souhaite une démonstration et un devis pour Layerdoc Enterprise." },
+    demo: { need: "demo", text: "Bonjour, je souhaite échanger sur Layerdoc Enterprise et obtenir un devis." },
     project: { need: "demo", text: "Bonjour, je souhaite que vous documentiez mon tracking de A à Z. Voici mon contexte : " }
   };
   var NEED_TEXT = { "open-source": PREFILL.waitlist.text, demo: PREFILL.demo.text };

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Layerdoc — La documentation de vos données collectées</title>
-<meta name="description" content="Layerdoc décrit ce que vos sites envoient et ce que chaque outil reçoit : dataLayer, mesure d'audience, publicité, consentement. Une documentation claire, multi-sites, avec recherche et export PDF.">
+<title>Documentation du tracking et plan de marquage — Layerdoc</title>
+<meta name="description" content="Documentez votre tracking : plan de marquage, dataLayer, outils et consentement, site par site. Lisible par toute l'équipe, avec recherche et export PDF.">
 <meta name="theme-color" content="#5b3df5">
 <link rel="canonical" href="https://layerdoc.fr/">
 <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Layerdoc">
 <meta property="og:url" content="https://layerdoc.fr/">
-<meta property="og:title" content="Layerdoc — La documentation de vos données collectées">
+<meta property="og:title" content="Documentation du tracking et plan de marquage — Layerdoc">
 <meta property="og:description" content="Une référence unique, lisible par toute l'équipe : ce que vos sites envoient, ce que chaque outil reçoit, avec quel consentement.">
 <meta property="og:image" content="https://layerdoc.fr/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -74,7 +74,7 @@
       <div class="site-header__actions">
         <!-- ⚠️ Libellé modifié (maquette : « Code source ») : le code n'est pas publié -->
         <a class="btn btn--soft" href="#formulaire" data-prefill="waitlist" data-track="menu-liste-attente">Liste d'attente</a>
-        <a class="btn btn--primary btn--sm" href="#formulaire" data-prefill="demo" data-track="menu-demo">Demander une démo</a>
+        <a class="btn btn--primary btn--sm" href="#formulaire" data-prefill="demo" data-track="menu-demo">Échanger sur Enterprise</a>
       </div>
     </div>
   </div>
@@ -86,8 +86,8 @@
 <section id="top" class="hero container">
   <!-- ⚠️ Badge adapté (maquette : « Open source · … ») : le code n'est pas encore publié -->
   <span class="hero__badge">Open source à venir<span class="hero__badge-extra"> · Documentation du tracking</span></span>
-  <h1 class="hero__title">La documentation de vos données collectées, <span>lisible par toute l'équipe.</span></h1>
-  <p class="hero__lead">Layerdoc décrit ce que vos sites envoient et ce que chaque outil reçoit&nbsp;: dataLayer, mesure d'audience, publicité, consentement. Vous écrivez en Markdown, Layerdoc publie une documentation claire, multi-sites, avec recherche et export PDF.</p>
+  <h1 class="hero__title">La documentation de votre tracking, <span>lisible par toute l'équipe.</span></h1>
+  <p class="hero__lead">Plan de marquage, dataLayer, Google Tag Manager, outils publicitaires, consentement&nbsp;: Layerdoc réunit dans une seule documentation ce que vos sites collectent et ce que chaque outil reçoit. Multi-sites, avec recherche et export PDF.</p>
   <div class="hero__cta">
     <!-- ⚠️ Libellé modifié (maquette : « Démarrer gratuitement ») -->
     <a class="btn btn--primary btn--lg" href="#formulaire" data-prefill="waitlist" data-track="hero-liste-attente">Rejoindre la liste d'attente</a>
@@ -95,7 +95,7 @@
   </div>
   <ul class="hero__points">
     <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Version gratuite à venir, auto-hébergée</li>
-    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Un site statique, sans base de données</li>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Site statique&nbsp;: aucune donnée collectée</li>
     <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pensé pour les groupes multi-sites</li>
   </ul>
 </section>
@@ -203,7 +203,7 @@
     </div>
     <div class="callout">
       <svg class="icon" aria-hidden="true" style="stroke-width:2.6"><use href="#i-check"/></svg>
-      <p><strong>Layerdoc réunit tout dans une référence unique</strong>, qui décrit l'état réellement en production, site par site, outil par outil.</p>
+      <p><strong>Layerdoc réunit tout dans une référence unique</strong>, qui documente l'état en production, daté et versionné, site par site, outil par outil.</p>
     </div>
   </div>
 </section>
@@ -217,7 +217,7 @@
   </div>
   <div class="grid grid--210" data-carousel data-carousel-label="Cinq métiers, faites défiler">
     <article class="card card--plain"><h3>Produit &amp; développeurs</h3><p>«&nbsp;Quelles données dois-je pousser dans le dataLayer, et quand&#8239;?&nbsp;»</p></article>
-    <article class="card card--plain"><h3>Acquisition &amp; agences</h3><p>«&nbsp;Mon pixel est-il actif sur ce site, avec quelles conversions&#8239;?&nbsp;»</p></article>
+    <article class="card card--plain"><h3>Acquisition, agences &amp; consultants</h3><p>«&nbsp;Mon pixel est-il actif sur ce site, avec quelles conversions&#8239;?&nbsp;»</p></article>
     <article class="card card--plain"><h3>CRO</h3><p>«&nbsp;Quels événements puis-je utiliser pour mes tests A/B&#8239;?&nbsp;»</p></article>
     <article class="card card--plain"><h3>Data &amp; analytics</h3><p>«&nbsp;Quelle propriété, quelle valeur attendue, sur quelle page&#8239;?&nbsp;»</p></article>
     <article class="card card--plain"><h3>Conformité &amp; DPO</h3><p>«&nbsp;Quel outil se déclenche, avec quel consentement&#8239;?&nbsp;»</p></article>
@@ -456,6 +456,7 @@ group: Outils
       <span class="eyebrow">Accompagnement</span>
       <h2 class="h2">Pas le temps de documenter&#8239;? On le fait pour vous.</h2>
       <p class="lead">Nous reprenons votre existant, rédigeons votre documentation de A à Z et la tenons à jour. Vous gardez la main sur la relecture.</p>
+      <p class="support__trust">Accompagnement assuré par Kimetrix, conseil en data analytics à Paris depuis 2017.</p>
       <a class="btn btn--primary" href="#formulaire" data-prefill="project" data-track="accompagnement-projet">Parler de votre projet</a>
     </div>
     <ol class="steps">
@@ -476,7 +477,7 @@ group: Outils
   <div class="offers__grid">
     <article class="offer">
       <div class="offer__head"><h3>Open source</h3><div class="offer__price">Gratuit</div><p>Pour les consultants et les équipes techniques qui gèrent leur propre hébergement.</p></div>
-      <a class="btn btn--outline" href="#formulaire" data-prefill="waitlist" data-track="offre-liste-attente">S'inscrire sur liste d'attente</a>
+      <a class="btn btn--outline" href="#formulaire" data-prefill="waitlist" data-track="offre-liste-attente">Rejoindre la liste d'attente</a>
       <ul class="ticks">
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pages en Markdown, versionnées dans Git</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Multi-sites avec onglets et variables par site</li>
@@ -490,7 +491,7 @@ group: Outils
     </article>
     <article class="offer offer--featured">
       <div class="offer__head"><h3>Enterprise <span class="pill">Multi-sites &amp; agences</span></h3><div class="offer__price">Sur devis</div><p>Pour les marques et les groupes qui partagent leur documentation avec leurs équipes et leurs agences.</p></div>
-      <a class="btn btn--primary" href="#formulaire" data-prefill="demo" data-track="offre-demo">Demander une démo</a>
+      <a class="btn btn--primary" href="#formulaire" data-prefill="demo" data-track="offre-demo">Échanger sur Enterprise</a>
       <div class="offer__plus">Tout l'open source, plus&nbsp;:</div>
       <ul class="ticks ticks--accent">
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hébergement sur votre domaine (CNAME) ou chez nous</li>
@@ -538,9 +539,11 @@ group: Outils
   <div class="faq__inner">
     <h2 class="h2">Questions fréquentes</h2>
     <div class="faq__list">
+      <details><summary>Layerdoc remplace-t-il mon plan de marquage Excel&#8239;?<span class="chev" aria-hidden="true">+</span></summary><p>Oui, pour la documentation. Layerdoc reprend le contenu d'un plan de marquage (ou plan de taggage)&nbsp;: événements, propriétés, outils, consentement. Il le rend lisible par toute l'équipe, daté et versionné. Il ne contrôle pas votre tracking&nbsp;: il le documente.</p></details>
       <details><summary>Layerdoc collecte-t-il des données sur mon site&#8239;?<span class="chev" aria-hidden="true">+</span></summary><p>Non. Layerdoc documente votre configuration, il ne collecte rien. Aucune clé d'API ni secret n'y figure, seulement des identifiants de comptes et de pixels.</p></details>
       <details><summary>Faut-il savoir coder pour la version open source&#8239;?<span class="chev" aria-hidden="true">+</span></summary><p>Il suffit de savoir éditer un fichier texte et lancer trois commandes. La version Enterprise ajoute un éditeur visuel pour les équipes non techniques.</p></details>
       <details><summary>Quels outils peut-on documenter&#8239;?<span class="chev" aria-hidden="true">+</span></summary><p>Tous. Les modèles couvrent la gestion de balises (web et server-side), la mesure d'audience, la publicité, l'A/B testing, la CDP et le consentement.</p></details>
+      <details><summary>Quand la version gratuite sera-t-elle disponible&#8239;?<span class="chev" aria-hidden="true">+</span></summary><p>La date n'est pas encore fixée. Les personnes inscrites sur la liste d'attente sont prévenues par e-mail au lancement, et pour cela seulement.</p></details>
       <details><summary>Peut-on passer de l'open source à Enterprise&#8239;?<span class="chev" aria-hidden="true">+</span></summary><p>Oui. Vos fichiers Markdown sont repris tels quels&nbsp;: rien à réécrire.</p></details>
       <details><summary>Où est hébergée la version Enterprise&#8239;?<span class="chev" aria-hidden="true">+</span></summary>
         <!-- ⚠️ À valider avec Guillaume : la maquette contient « [À PRÉCISER : pays d'hébergement, prestataire, engagements RGPD.] ». Texte provisoire neutre, sans engagement inventé. -->
@@ -554,7 +557,7 @@ group: Outils
   <div class="final__box">
     <div class="final__text">
       <h2>Votre tracking mérite mieux qu'un fichier Excel.</h2>
-      <p>Rejoignez la liste d'attente de la version gratuite, ou parlons de votre organisation&nbsp;: démo Enterprise, devis, accompagnement.</p>
+      <p>Rejoignez la liste d'attente de la version gratuite, ou parlons de votre organisation&nbsp;: Enterprise, devis, accompagnement.</p>
     </div>
     <div class="final__card">
       <form id="contact-form" novalidate aria-label="Formulaire de contact" data-track="formulaire-contact">
