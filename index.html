@@ -85,9 +85,9 @@
 <!-- 2. HERO -->
 <section id="top" class="hero container">
   <!-- ⚠️ Badge adapté (maquette : « Open source · … ») : le code n'est pas encore publié -->
-  <span class="hero__badge">Open source à venir · Documentation du tracking</span>
+  <span class="hero__badge">Open source à venir<span class="hero__badge-extra"> · Documentation du tracking</span></span>
   <h1 class="hero__title">La documentation de vos données collectées, <span>lisible par toute l'équipe.</span></h1>
-  <p class="hero__lead">Layerdoc décrit ce que vos sites envoient et ce que chaque outil reçoit : dataLayer, mesure d'audience, publicité, consentement. Vous écrivez en Markdown, Layerdoc publie une documentation claire, multi-sites, avec recherche et export PDF.</p>
+  <p class="hero__lead">Layerdoc décrit ce que vos sites envoient et ce que chaque outil reçoit&nbsp;: dataLayer, mesure d'audience, publicité, consentement. Vous écrivez en Markdown, Layerdoc publie une documentation claire, multi-sites, avec recherche et export PDF.</p>
   <div class="hero__cta">
     <!-- ⚠️ Libellé modifié (maquette : « Démarrer gratuitement ») -->
     <a class="btn btn--primary btn--lg" href="#formulaire" data-prefill="waitlist" data-track="hero-liste-attente">Rejoindre la liste d'attente</a>
@@ -102,6 +102,7 @@
 
 <!-- Aperçu interactif -->
 <section class="preview container" aria-label="Aperçu de la documentation">
+  <div class="browser-stage" data-thumb>
   <div class="browser">
     <div class="browser__bar">
       <div class="browser__dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -167,7 +168,13 @@
       </div>
     </div>
   </div>
-  <p class="preview__note">Exemple fictif. Cliquez sur un site : le tableau s'adapte.</p>
+  </div>
+  <p class="preview__note">Exemple fictif.<span class="preview__hint"> Cliquez sur un site&nbsp;: le tableau s'adapte.</span></p>
+  <ul class="preview__points">
+    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Une fiche par outil</li>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Le consentement visible partout</li>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Un onglet par site</li>
+  </ul>
 </section>
 
 <!-- 3. CONSTAT -->
@@ -206,14 +213,14 @@
   <div class="section-head section-head--narrow">
     <span class="eyebrow">Pour qui</span>
     <h2 class="h2">Une référence commune, une réponse par métier.</h2>
-    <p class="lead">Chaque page suit le même fil : du plus général au plus technique. Chacun s'arrête où il a sa réponse.</p>
+    <p class="lead">Chaque page suit le même fil&nbsp;: du plus général au plus technique. Chacun s'arrête où il a sa réponse.</p>
   </div>
-  <div class="grid grid--210">
-    <article class="card card--plain"><h3>Produit &amp; développeurs</h3><p>« Quelles données dois-je pousser dans le dataLayer, et quand ? »</p></article>
-    <article class="card card--plain"><h3>Acquisition &amp; agences</h3><p>« Mon pixel est-il actif sur ce site, avec quelles conversions ? »</p></article>
-    <article class="card card--plain"><h3>CRO</h3><p>« Quels événements puis-je utiliser pour mes tests A/B ? »</p></article>
-    <article class="card card--plain"><h3>Data &amp; analytics</h3><p>« Quelle propriété, quelle valeur attendue, sur quelle page ? »</p></article>
-    <article class="card card--plain"><h3>Conformité &amp; DPO</h3><p>« Quel outil se déclenche, avec quel consentement ? »</p></article>
+  <div class="grid grid--210" data-carousel data-carousel-label="Cinq métiers, faites défiler">
+    <article class="card card--plain"><h3>Produit &amp; développeurs</h3><p>«&nbsp;Quelles données dois-je pousser dans le dataLayer, et quand&#8239;?&nbsp;»</p></article>
+    <article class="card card--plain"><h3>Acquisition &amp; agences</h3><p>«&nbsp;Mon pixel est-il actif sur ce site, avec quelles conversions&#8239;?&nbsp;»</p></article>
+    <article class="card card--plain"><h3>CRO</h3><p>«&nbsp;Quels événements puis-je utiliser pour mes tests A/B&#8239;?&nbsp;»</p></article>
+    <article class="card card--plain"><h3>Data &amp; analytics</h3><p>«&nbsp;Quelle propriété, quelle valeur attendue, sur quelle page&#8239;?&nbsp;»</p></article>
+    <article class="card card--plain"><h3>Conformité &amp; DPO</h3><p>«&nbsp;Quel outil se déclenche, avec quel consentement&#8239;?&nbsp;»</p></article>
   </div>
 </section>
 
@@ -225,9 +232,9 @@
   </div>
   <div class="grid grid--250 grid--features">
     <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><h3>Markdown, versionné dans Git</h3><p>Une page = un fichier. Le menu se construit tout seul, l'historique reste dans Git.</p></article>
-    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-sites"/></svg><h3>Multi-sites natif</h3><p>Un onglet ou une colonne par site : les différences restent dans la même page. Le choix du site est mémorisé.</p></article>
-    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><h3>Consentement visible partout</h3><p>Chaque outil et chaque événement porte son badge : exempté, performance ou publicité.</p></article>
-    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-sheet"/></svg><h3>Fiches outils standardisées</h3><p>Même fil de lecture pour chaque outil : rôle, collecte, sites actifs, données envoyées, conformité.</p></article>
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-sites"/></svg><h3>Multi-sites natif</h3><p>Un onglet ou une colonne par site&nbsp;: les différences restent dans la même page. Le choix du site est mémorisé.</p></article>
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><h3>Consentement visible partout</h3><p>Chaque outil et chaque événement porte son badge&nbsp;: exempté, performance ou publicité.</p></article>
+    <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-sheet"/></svg><h3>Fiches outils standardisées</h3><p>Même fil de lecture pour chaque outil&nbsp;: rôle, collecte, sites actifs, données envoyées, conformité.</p></article>
     <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-plan"/></svg><h3>Plans de marquage par parcours</h3><p>Une capture repérée par des numéros et le tableau des événements, page par page.</p></article>
     <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-schema"/></svg><h3>Schémas d'architecture</h3><p>Flux navigateur, serveur et consentement, lisibles en thème clair comme en sombre.</p></article>
     <article class="feature"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><h3>Recherche instantanée</h3><p>Une page autonome par client, menu et recherche plein texte inclus.</p></article>
@@ -240,11 +247,20 @@
   <div class="md">
     <div class="md__intro">
       <h2 id="md-title" class="h2 h2--sm">Vous écrivez du texte. Layerdoc s'occupe du reste.</h2>
-      <p class="lead lead--sm">Une syntaxe courte pour les fiches, les onglets par site et les encadrés « À vérifier ». Un point non confirmé n'est jamais présenté comme un fait.</p>
-      <div class="cmds"><span>npm run new -- mon-client</span><span>npm run dev</span><span>npm run build</span></div>
+      <p class="lead lead--sm">Le menu, la recherche, les badges de consentement et l'export PDF sont générés automatiquement à partir de vos pages.</p>
     </div>
-    <div class="md__code">
-      <div class="md__file">pages/meta-ads.md</div>
+    <ol class="md__steps">
+      <li><span class="steps__n">1</span><b>Vous écrivez une page</b></li>
+      <li><span class="steps__n">2</span><b>Layerdoc génère le site</b></li>
+      <li><span class="steps__n">3</span><b>Vous publiez</b></li>
+    </ol>
+    <details class="md__dev">
+      <summary>Pour les développeurs&nbsp;: les 3 commandes</summary>
+      <div class="cmds"><span>npm run new -- mon-client</span><span>npm run dev</span><span>npm run build</span></div>
+    </details>
+    <div class="md__pair">
+      <div class="md__code">
+        <div class="md__file">pages/meta-ads.md</div>
 <pre>---
 title: Meta Ads
 group: Outils
@@ -253,25 +269,31 @@ group: Outils
 ::: meta
 - **Collecte** : navigateur + serveur
 - **Consentement** : C0004 Publicité
-:::
-
-:::: tabs
-=== site-fr
-Pixel et API Conversions actifs.
-=== site-be
-Pixel actif, sans API Conversions.
-::::</pre>
-    </div>
-    <div class="md__render">
-      <div class="doc-main__crumb">Outils</div>
-      <div class="md__render-title">Meta Ads</div>
-      <dl class="kv">
-        <div><dt>Collecte</dt><dd>Navigateur + serveur</dd></div>
-        <div><dt>Consentement</dt><dd><span class="badge badge--c4">C0004 · Publicité</span></dd></div>
-      </dl>
-      <div class="mini-tabs" aria-hidden="true"><span class="is-active">Site FR</span><span>Site BE</span></div>
-      <p>Pixel et API Conversions actifs.</p>
-      <div class="check-note"><strong>⚠️ À vérifier</strong><span>Déduplication navigateur / serveur.</span></div>
+:::</pre>
+      </div>
+      <div class="md__arrow" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></div>
+      <div class="browser-stage browser-stage--compact" data-thumb data-thumb-width="560">
+        <div class="browser browser--compact">
+          <div class="browser__bar">
+            <div class="browser__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="browser__url">docs-tracking.maison-lumen.fr/meta-ads</div>
+          </div>
+          <div class="browser__body">
+            <div class="doc-side">
+              <div class="doc-side__head"><strong>Maison Lumen</strong><span>Documentation du tracking</span></div>
+              <div class="doc-side__group"><span class="doc-side__label">Outils</span><span>Piano Analytics</span><span>Google Ads</span><span class="is-active">Meta Ads</span></div>
+            </div>
+            <div class="doc-main">
+              <div class="doc-main__crumb">Outils</div>
+              <div class="doc-main__title">Meta Ads</div>
+              <dl class="facts">
+                <div><dt>Collecte</dt><dd>Navigateur + serveur</dd></div>
+                <div><dt>Consentement</dt><dd><span class="badge badge--c4">C0004 · Publicité</span></dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -294,7 +316,7 @@ Pixel actif, sans API Conversions.
         <article class="ecard">
           <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-write"/></svg>Rédaction assistée par IA</h3>
           <p class="ecard__text">Dans l'éditeur sans code, décrivez en une phrase ce qu'il faut documenter. L'IA rédige la page et signale ce qu'elle ne peut pas confirmer. Vous relisez avant de publier.</p>
-          <div class="mock" aria-hidden="true">
+          <div class="mock peek" style="--peek:195px" aria-hidden="true">
             <div class="mock__bar"><span class="mock__crumb">Conversions / <strong>Prise de rendez-vous</strong></span><span class="pill">Brouillon</span></div>
             <div class="mock__body">
               <div class="prompt"><svg class="icon"><use href="#i-sparkle"/></svg><span>Explique l'événement de prise de rendez-vous en magasin</span><b>Rédiger</b></div>
@@ -303,7 +325,7 @@ Pixel actif, sans API Conversions.
                 <div class="ai-box__title">Prise de rendez-vous</div>
                 <p>Cet événement est envoyé quand un visiteur <strong>confirme son rendez-vous en magasin</strong>. Il mesure la conversion clé du site.</p>
                 <div class="chips"><span class="chip">Piano Analytics<span class="badge badge--ok">Exempté</span></span><span class="chip">Google Ads<span class="badge badge--c4">C0004</span></span></div>
-                <div class="todo"><strong>À vérifier :</strong> la date de mise en production de cet événement n'est pas indiquée dans vos sources.</div>
+                <div class="todo"><strong>À vérifier&nbsp;:</strong> la date de mise en production de cet événement n'est pas indiquée dans vos sources.</div>
               </div>
               <div class="actions"><span class="actions__main">Insérer dans la page</span><span>Reformuler</span><span>Raccourcir</span><span>Régénérer</span></div>
             </div>
@@ -311,8 +333,8 @@ Pixel actif, sans API Conversions.
         </article>
         <article class="ecard">
           <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-chat"/></svg>Commentaires et fils de discussion</h3>
-          <p class="ecard__text">Une question sur un passage ? Commentez-le dans la page. Votre équipe et vos agences répondent dans le même fil, qui se clôt une fois le sujet réglé.</p>
-          <div class="mock" aria-hidden="true">
+          <p class="ecard__text">Une question sur un passage&#8239;? Commentez-le dans la page. Votre équipe et vos agences répondent dans le même fil, qui se clôt une fois le sujet réglé.</p>
+          <div class="mock peek" style="--peek:150px" aria-hidden="true">
             <div class="mock__bar"><span class="mock__crumb">Conversions / <strong>Prise de rendez-vous</strong></span><span class="pill pill--warn">1 fil ouvert</span></div>
             <div class="mock__body mock__body--row">
               <div class="thread-page">
@@ -322,8 +344,8 @@ Pixel actif, sans API Conversions.
               </div>
               <div class="thread">
                 <span class="thread__arrow"></span>
-                <div class="msg"><svg class="avatar" width="34" height="34" viewBox="0 0 34 34"><rect width="34" height="34" fill="#d8d0ff"/><circle cx="17" cy="13" r="6" fill="#5b3df5"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#5b3df5"/></svg><div><div class="msg__who"><strong>Marie</strong><span>Agence média · il y a 2 h</span></div><span>Cet événement part-il aussi vers Meta ?</span></div></div>
-                <div class="msg"><svg class="avatar" width="34" height="34" viewBox="0 0 34 34"><rect width="34" height="34" fill="#c9ecdd"/><circle cx="17" cy="13" r="6" fill="#0b6b4c"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#0b6b4c"/></svg><div><div class="msg__who"><strong>Karim</strong><span>Data · il y a 1 h</span></div><span><span class="mention">@Marie</span> Non, seulement Google Ads pour l'instant. Je complète la page.</span></div></div>
+                <div class="msg"><svg class="avatar" width="34" height="34" viewBox="0 0 34 34"><rect width="34" height="34" fill="#d8d0ff"/><circle cx="17" cy="13" r="6" fill="#5b3df5"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#5b3df5"/></svg><div><div class="msg__who"><strong>Marie</strong><span>Agence média · il y a 2&nbsp;h</span></div><span>Cet événement part-il aussi vers Meta&#8239;?</span></div></div>
+                <div class="msg"><svg class="avatar" width="34" height="34" viewBox="0 0 34 34"><rect width="34" height="34" fill="#c9ecdd"/><circle cx="17" cy="13" r="6" fill="#0b6b4c"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#0b6b4c"/></svg><div><div class="msg__who"><strong>Karim</strong><span>Data · il y a 1&nbsp;h</span></div><span><span class="mention">@Marie</span> Non, seulement Google Ads pour l'instant. Je complète la page.</span></div></div>
                 <div class="reply"><span>Répondre…</span><b>Résoudre</b></div>
               </div>
             </div>
@@ -339,9 +361,9 @@ Pixel actif, sans API Conversions.
         <article class="ecard">
           <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-sparkle"/></svg>Recherche assistée par IA</h3>
           <p class="ecard__text">Posez une question en français. La réponse cite les pages sources, pour vérifier en un clic.</p>
-          <div class="mock mock--pad" aria-hidden="true">
-            <div class="ask"><svg class="icon" style="color:var(--slate)"><use href="#i-search"/></svg>Quels outils se déclenchent sans consentement ?</div>
-            <p class="answer">Deux éléments sont <strong>exemptés</strong> : Piano Analytics, pour la mesure d'audience, et les balises techniques de Google Tag Manager. Toutes les plateformes publicitaires attendent le groupe <strong>C0004</strong>.</p>
+          <div class="mock mock--pad peek" style="--peek:148px" aria-hidden="true">
+            <div class="ask"><svg class="icon" style="color:var(--slate)"><use href="#i-search"/></svg>Quels outils se déclenchent sans consentement&#8239;?</div>
+            <p class="answer">Deux éléments sont <strong>exemptés</strong>&nbsp;: Piano Analytics, pour la mesure d'audience, et les balises techniques de Google Tag Manager. Toutes les plateformes publicitaires attendent le groupe <strong>C0004</strong>.</p>
             <div class="sources"><span>Consentement</span><span>Piano Analytics</span><span>Google Tag Manager</span></div>
           </div>
         </article>
@@ -351,9 +373,9 @@ Pixel actif, sans API Conversions.
           <pre class="codebox" aria-label="Exemple de configuration MCP">"layerdoc": {
   "url": "https://docs.votre-site.fr/mcp"
 }</pre>
-          <div class="chat" aria-hidden="true">
-            <div class="chat__user">Quel événement mesure la prise de rendez-vous ?</div>
-            <div class="chat__bot">L'événement <code>appointment_confirmed</code>, poussé à l'affichage de la confirmation. Il alimente Piano Analytics et Google Ads. <span>Source : Conversions</span></div>
+          <div class="chat peek peek--dark" style="--peek:105px" aria-hidden="true">
+            <div class="chat__user">Quel événement mesure la prise de rendez-vous&#8239;?</div>
+            <div class="chat__bot">L'événement <code>appointment_confirmed</code>, poussé à l'affichage de la confirmation. Il alimente Piano Analytics et Google Ads. <span>Source&nbsp;: Conversions</span></div>
           </div>
         </article>
       </div>
@@ -373,7 +395,7 @@ Pixel actif, sans API Conversions.
         </article>
         <article class="ecard">
           <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-palette"/></svg>Marque blanche</h3>
-          <p class="ecard__text">Votre logo, vos couleurs, votre typographie. La documentation devient un outil interne. Essayez :</p>
+          <p class="ecard__text">Votre logo, vos couleurs, votre typographie. La documentation devient un outil interne. Essayez&nbsp;:</p>
           <div class="swatches" role="group" aria-label="Couleur de la marque" data-swatches>
             <button type="button" class="swatch" data-color="#5b3df5" aria-label="Violet" aria-pressed="true" style="--c:#5b3df5"></button>
             <button type="button" class="swatch" data-color="#0f766e" aria-label="Vert canard" aria-pressed="false" style="--c:#0f766e"></button>
@@ -381,7 +403,7 @@ Pixel actif, sans API Conversions.
             <button type="button" class="swatch" data-color="#1d4ed8" aria-label="Bleu" aria-pressed="false" style="--c:#1d4ed8"></button>
             <button type="button" class="swatch" data-color="#be185d" aria-label="Framboise" aria-pressed="false" style="--c:#be185d"></button>
           </div>
-          <div class="mock brand-mock" data-brand-mock aria-hidden="true">
+          <div class="mock brand-mock peek" style="--peek:145px" data-brand-mock aria-hidden="true">
             <div class="brand-mock__bar"><span class="brand-mock__logo"></span><b>Votre marque</b><span>Documentation du tracking</span></div>
             <div class="brand-mock__body">
               <div class="brand-mock__nav"><span>Vue d'ensemble</span><span class="is-active">Conversions</span><span>Consentement</span></div>
@@ -398,9 +420,9 @@ Pixel actif, sans API Conversions.
       <article class="ecard ecard--wide">
         <div class="ecard__side">
           <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-grid"/></svg>Hub multi-documentations</h3>
-          <p class="ecard__text">Votre organisation ne se gère pas d'un seul bloc ? Réunissez plusieurs documentations derrière une seule adresse : une par périmètre, chacune avec ses pages, ses règles et ses accès.</p>
+          <p class="ecard__text">Votre organisation ne se gère pas d'un seul bloc&#8239;? Réunissez plusieurs documentations derrière une seule adresse&nbsp;: une par périmètre, chacune avec ses pages, ses règles et ses accès.</p>
         </div>
-        <div class="hub" aria-hidden="true">
+        <div class="hub peek peek--dark" style="--peek:100px" aria-hidden="true">
           <div class="hub__item"><span>Documentation 1</span><b>Sites France</b><p>Collecte, consentement et parcours des sites principaux.</p></div>
           <div class="hub__item"><span>Documentation 2</span><b>Sites export</b><p>Une documentation propre aux pays, avec ses particularités.</p></div>
           <div class="hub__item"><span>Documentation 3</span><b>Sites BtoB</b><p>Gérée à part, avec ses propres règles et ses propres accès.</p></div>
@@ -416,7 +438,7 @@ Pixel actif, sans API Conversions.
           <h3 class="ecard__title"><svg class="icon" aria-hidden="true" style="stroke-width:1.8"><use href="#i-user"/></svg>Gestion des accès</h3>
           <p class="ecard__text">Connexion SSO, rôles lecteur, éditeur et administrateur. Une agence ne voit que les sites qu'elle gère.</p>
         </div>
-        <div class="access mock" aria-hidden="true">
+        <div class="access mock peek" style="--peek:128px" aria-hidden="true">
           <div class="mock__bar"><b>Accès à la documentation</b><span class="pill">Connexion SSO</span></div>
           <div class="access__row"><svg class="avatar" width="30" height="30" viewBox="0 0 34 34"><rect width="34" height="34" fill="#d8d0ff"/><circle cx="17" cy="13" r="6" fill="#5b3df5"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#5b3df5"/></svg><b>Marie · Agence média</b><span class="badge badge--violet">Lecteur</span><span class="access__scope">Sites France uniquement</span></div>
           <div class="access__row"><svg class="avatar" width="30" height="30" viewBox="0 0 34 34"><rect width="34" height="34" fill="#c9ecdd"/><circle cx="17" cy="13" r="6" fill="#0b6b4c"/><path d="M5 34c0-7 5.5-11 12-11s12 4 12 11z" fill="#0b6b4c"/></svg><b>Karim · Data</b><span class="badge badge--ok">Éditeur</span><span class="access__scope">Toutes les documentations</span></div>
@@ -432,13 +454,13 @@ Pixel actif, sans API Conversions.
   <div class="container support__inner">
     <div class="support__text">
       <span class="eyebrow">Accompagnement</span>
-      <h2 class="h2">Pas le temps de documenter ? On le fait pour vous.</h2>
+      <h2 class="h2">Pas le temps de documenter&#8239;? On le fait pour vous.</h2>
       <p class="lead">Nous reprenons votre existant, rédigeons votre documentation de A à Z et la tenons à jour. Vous gardez la main sur la relecture.</p>
       <a class="btn btn--primary" href="#formulaire" data-prefill="project" data-track="accompagnement-projet">Parler de votre projet</a>
     </div>
     <ol class="steps">
-      <li><span class="steps__n">1</span><div><b>Reprise de l'existant</b><span>Plans de marquage, conteneurs GTM, tableurs : nous partons de ce que vous avez déjà.</span></div></li>
-      <li><span class="steps__n">2</span><div><b>Rédaction de A à Z</b><span>Pages, parcours, consentement : nous rédigeons et validons avec vos équipes.</span></div></li>
+      <li><span class="steps__n">1</span><div><b>Reprise de l'existant</b><span>Plans de marquage, conteneurs GTM, tableurs&nbsp;: nous partons de ce que vous avez déjà.</span></div></li>
+      <li><span class="steps__n">2</span><div><b>Rédaction de A à Z</b><span>Pages, parcours, consentement&nbsp;: nous rédigeons et validons avec vos équipes.</span></div></li>
       <li><span class="steps__n">3</span><div><b>Mise à jour continue</b><span>Quand le tracking évolue, la documentation suit.</span></div></li>
     </ol>
   </div>
@@ -449,7 +471,7 @@ Pixel actif, sans API Conversions.
   <div class="section-head section-head--center">
     <span class="eyebrow">Offres</span>
     <h2 class="h2">Deux façons d'utiliser Layerdoc.</h2>
-    <p class="lead">Le contenu est le même dans les deux versions : vous passez de l'une à l'autre sans rien réécrire.</p>
+    <p class="lead">Le contenu est le même dans les deux versions&nbsp;: vous passez de l'une à l'autre sans rien réécrire.</p>
   </div>
   <div class="offers__grid">
     <article class="offer">
@@ -458,7 +480,7 @@ Pixel actif, sans API Conversions.
       <ul class="ticks">
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pages en Markdown, versionnées dans Git</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Multi-sites avec onglets et variables par site</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Badges de consentement et encadrés « À vérifier »</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Badges de consentement et encadrés «&nbsp;À vérifier&nbsp;»</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Modèles de fiches outils et de parcours</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Recherche plein texte, thème clair et sombre</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Export PDF en un clic</li>
@@ -469,15 +491,15 @@ Pixel actif, sans API Conversions.
     <article class="offer offer--featured">
       <div class="offer__head"><h3>Enterprise <span class="pill">Multi-sites &amp; agences</span></h3><div class="offer__price">Sur devis</div><p>Pour les marques et les groupes qui partagent leur documentation avec leurs équipes et leurs agences.</p></div>
       <a class="btn btn--primary" href="#formulaire" data-prefill="demo" data-track="offre-demo">Demander une démo</a>
-      <div class="offer__plus">Tout l'open source, plus :</div>
+      <div class="offer__plus">Tout l'open source, plus&nbsp;:</div>
       <ul class="ticks ticks--accent">
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hébergement sur votre domaine (CNAME) ou chez nous</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Marque blanche : logo, couleurs, typographie</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Marque blanche&nbsp;: logo, couleurs, typographie</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>SSO, rôles et accès limité par site</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Éditeur sans code, avec relecture avant publication</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Rédaction assistée par IA : l'IA écrit, vous relisez</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Rédaction assistée par IA&nbsp;: l'IA écrit, vous relisez</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Commentaires avec fils de discussion</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hub : plusieurs documentations réunies en un seul endroit</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hub&nbsp;: plusieurs documentations réunies en un seul endroit</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Recherche assistée par IA, avec sources</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Serveur MCP pour vos LLM</li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Reprise de l'existant et accompagnement</li>
@@ -485,6 +507,8 @@ Pixel actif, sans API Conversions.
     </article>
   </div>
 
+  <details class="compare-details" open>
+    <summary>Voir le comparatif détaillé</summary>
   <div class="compare">
     <table>
       <caption class="visually-hidden">Comparatif détaillé des offres Open source et Enterprise</caption>
@@ -506,6 +530,7 @@ Pixel actif, sans API Conversions.
       </tbody>
     </table>
   </div>
+  </details>
 </section>
 
 <!-- 7. FAQ -->
@@ -513,13 +538,13 @@ Pixel actif, sans API Conversions.
   <div class="faq__inner">
     <h2 class="h2">Questions fréquentes</h2>
     <div class="faq__list">
-      <details><summary>Layerdoc collecte-t-il des données sur mon site ?<span class="chev" aria-hidden="true">+</span></summary><p>Non. Layerdoc documente votre configuration, il ne collecte rien. Aucune clé d'API ni secret n'y figure, seulement des identifiants de comptes et de pixels.</p></details>
-      <details><summary>Faut-il savoir coder pour la version open source ?<span class="chev" aria-hidden="true">+</span></summary><p>Il suffit de savoir éditer un fichier texte et lancer trois commandes. La version Enterprise ajoute un éditeur visuel pour les équipes non techniques.</p></details>
-      <details><summary>Quels outils peut-on documenter ?<span class="chev" aria-hidden="true">+</span></summary><p>Tous. Les modèles couvrent la gestion de balises (web et server-side), la mesure d'audience, la publicité, l'A/B testing, la CDP et le consentement.</p></details>
-      <details><summary>Peut-on passer de l'open source à Enterprise ?<span class="chev" aria-hidden="true">+</span></summary><p>Oui. Vos fichiers Markdown sont repris tels quels : rien à réécrire.</p></details>
-      <details><summary>Où est hébergée la version Enterprise ?<span class="chev" aria-hidden="true">+</span></summary>
+      <details><summary>Layerdoc collecte-t-il des données sur mon site&#8239;?<span class="chev" aria-hidden="true">+</span></summary><p>Non. Layerdoc documente votre configuration, il ne collecte rien. Aucune clé d'API ni secret n'y figure, seulement des identifiants de comptes et de pixels.</p></details>
+      <details><summary>Faut-il savoir coder pour la version open source&#8239;?<span class="chev" aria-hidden="true">+</span></summary><p>Il suffit de savoir éditer un fichier texte et lancer trois commandes. La version Enterprise ajoute un éditeur visuel pour les équipes non techniques.</p></details>
+      <details><summary>Quels outils peut-on documenter&#8239;?<span class="chev" aria-hidden="true">+</span></summary><p>Tous. Les modèles couvrent la gestion de balises (web et server-side), la mesure d'audience, la publicité, l'A/B testing, la CDP et le consentement.</p></details>
+      <details><summary>Peut-on passer de l'open source à Enterprise&#8239;?<span class="chev" aria-hidden="true">+</span></summary><p>Oui. Vos fichiers Markdown sont repris tels quels&nbsp;: rien à réécrire.</p></details>
+      <details><summary>Où est hébergée la version Enterprise&#8239;?<span class="chev" aria-hidden="true">+</span></summary>
         <!-- ⚠️ À valider avec Guillaume : la maquette contient « [À PRÉCISER : pays d'hébergement, prestataire, engagements RGPD.] ». Texte provisoire neutre, sans engagement inventé. -->
-        <p>Vous choisissez : sur votre propre domaine (CNAME) ou sur la plateforme Layerdoc. Le pays d'hébergement, le prestataire et nos engagements RGPD seront précisés avant le lancement.</p></details>
+        <p>Vous choisissez&nbsp;: sur votre propre domaine (CNAME) ou sur la plateforme Layerdoc. Le pays d'hébergement, le prestataire et nos engagements RGPD seront précisés avant le lancement.</p></details>
     </div>
   </div>
 </section>
@@ -529,7 +554,7 @@ Pixel actif, sans API Conversions.
   <div class="final__box">
     <div class="final__text">
       <h2>Votre tracking mérite mieux qu'un fichier Excel.</h2>
-      <p>Rejoignez la liste d'attente de la version gratuite, ou parlons de votre organisation : démo Enterprise, devis, accompagnement.</p>
+      <p>Rejoignez la liste d'attente de la version gratuite, ou parlons de votre organisation&nbsp;: démo Enterprise, devis, accompagnement.</p>
     </div>
     <div class="final__card">
       <form id="contact-form" novalidate aria-label="Formulaire de contact" data-track="formulaire-contact">
@@ -566,6 +591,10 @@ Pixel actif, sans API Conversions.
     </nav>
   </div>
 </footer>
+
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <a class="btn btn--primary" href="#formulaire" data-prefill="waitlist" data-track="sticky-liste-attente" tabindex="-1">Rejoindre la liste d'attente</a>
+</div>
 
 <script src="assets/js/config.js"></script>
 <script src="assets/js/main.js"></script>

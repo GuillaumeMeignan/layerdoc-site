@@ -30,6 +30,101 @@
     if (mq.addEventListener) mq.addEventListener("change", onResize); else mq.addListener(onResize);
   }
 
+  /* ---------- Comportements propres au mobile (≤ 720 px) ---------- */
+  var mobile = window.matchMedia("(max-width: 720px)");
+  function onMobileChange(fn) {
+    if (mobile.addEventListener) mobile.addEventListener("change", fn); else mobile.addListener(fn);
+  }
+
+  /* Miniatures : la mise en page desktop est rendue à largeur fixe puis réduite à la largeur disponible.
+     Illustration seule sur mobile : pas d'interaction (inert). */
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll("[data-thumb]"));
+  var THUMB_MAX_HEIGHT = 420;
+  function fitThumb(stage) {
+    var box = stage.firstElementChild;
+    if (!mobile.matches) {
+      ["--scale", "--thumb-h", "--thumb-w"].forEach(function (v) { stage.style.removeProperty(v); });
+      stage.classList.remove("is-cropped");
+      stage.inert = false;
+      return;
+    }
+    var width = Number(stage.getAttribute("data-thumb-width")) || 640;
+    var scale = Math.min(1, stage.clientWidth / width);
+    var natural = box.offsetHeight * scale;
+    stage.style.setProperty("--thumb-w", width + "px");
+    stage.style.setProperty("--scale", scale.toFixed(4));
+    stage.style.setProperty("--thumb-h", Math.round(Math.min(natural, THUMB_MAX_HEIGHT)) + "px");
+    stage.classList.toggle("is-cropped", natural > THUMB_MAX_HEIGHT);
+    stage.inert = true;
+  }
+  function fitThumbs() { thumbs.forEach(fitThumb); }
+  if (thumbs.length) {
+    fitThumbs();
+    if ("ResizeObserver" in window) {
+      var ro = new ResizeObserver(fitThumbs);
+      thumbs.forEach(function (t) { ro.observe(t); });
+    } else {
+      window.addEventListener("resize", fitThumbs);
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitThumbs);
+    onMobileChange(fitThumbs);
+  }
+
+  /* Carrousel « Pour qui » : focusable et annoncé uniquement quand il défile (mobile) */
+  document.querySelectorAll("[data-carousel]").forEach(function (el) {
+    var sync = function () {
+      if (mobile.matches) {
+        el.setAttribute("tabindex", "0");
+        el.setAttribute("role", "group");
+        el.setAttribute("aria-label", el.getAttribute("data-carousel-label") || "");
+      } else {
+        el.removeAttribute("tabindex");
+        el.removeAttribute("role");
+        el.removeAttribute("aria-label");
+      }
+    };
+    sync();
+    onMobileChange(sync);
+  });
+
+  /* Comparatif des offres : replié sur mobile, toujours déployé sur desktop (le résumé y est masqué) */
+  var compare = document.querySelector(".compare-details");
+  if (compare) {
+    var syncCompare = function () { compare.open = !mobile.matches; };
+    syncCompare();
+    onMobileChange(syncCompare);
+  }
+
+  /* Barre d'action collante (mobile) : visible une fois le hero passé,
+     masquée sur le formulaire ou quand le menu burger est ouvert. */
+  var sticky = document.getElementById("sticky-cta");
+  var heroCta = document.querySelector(".hero__cta");
+  var formSection = document.getElementById("formulaire");
+  if (sticky && heroCta && formSection && "IntersectionObserver" in window) {
+    var heroGone = false, formVisible = false;
+    var stickyLink = sticky.querySelector("a");
+    var refreshSticky = function () {
+      var menuOpen = header && header.classList.contains("is-open");
+      var show = mobile.matches && heroGone && !formVisible && !menuOpen;
+      sticky.classList.toggle("is-visible", show);
+      sticky.setAttribute("aria-hidden", show ? "false" : "true");
+      stickyLink.tabIndex = show ? 0 : -1;
+      document.body.classList.toggle("has-sticky-cta", mobile.matches);
+    };
+    new IntersectionObserver(function (entries) {
+      var e = entries[entries.length - 1];
+      heroGone = !e.isIntersecting && e.boundingClientRect.top < 0;
+      refreshSticky();
+    }).observe(heroCta);
+    new IntersectionObserver(function (entries) {
+      formVisible = entries[entries.length - 1].isIntersecting;
+      refreshSticky();
+    }).observe(formSection);
+    if (header) new MutationObserver(refreshSticky).observe(header, { attributes: true, attributeFilter: ["class"] });
+    onMobileChange(refreshSticky);
+    refreshSticky();
+  }
+
   /* ---------- Onglets de sites (aperçu du hero) ---------- */
   var tablist = document.querySelector("[data-tabs]");
   if (tablist) {
@@ -113,7 +208,7 @@
     form.querySelectorAll("[aria-invalid]").forEach(function (f) { f.removeAttribute("aria-invalid"); });
     if (invalid.length) {
       invalid.forEach(function (f) { f.setAttribute("aria-invalid", "true"); });
-      showError("Merci de remplir les champs obligatoires : nom, e-mail, et la case de consentement.");
+      showError("Merci de remplir les champs obligatoires\u00a0: nom, e-mail, et la case de consentement.");
       invalid[0].focus();
       return;
     }
@@ -156,7 +251,7 @@
         }
       })
       .catch(function () {
-        showError("L'envoi a échoué. Vos données sont conservées : réessayez dans un instant, ou écrivez-nous directement.");
+        showError("L'envoi a échoué. Vos données sont conservées\u00a0: réessayez dans un instant, ou écrivez-nous directement.");
       })
       .then(function () {
         submit.disabled = false;
