@@ -3,6 +3,33 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Burger menu (mobile) ---------- */
+  var header = document.querySelector(".site-header");
+  var toggle = document.getElementById("nav-toggle");
+  var menu = document.getElementById("site-menu");
+  if (header && toggle && menu) {
+    var mq = window.matchMedia("(max-width: 900px)");
+    var setOpen = function (open, focusToggle) {
+      header.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!open && focusToggle) toggle.focus();
+    };
+    toggle.hidden = false;
+    header.classList.add("has-toggle");
+    setOpen(false);
+    toggle.addEventListener("click", function () { setOpen(!header.classList.contains("is-open")); });
+    // Un clic sur un lien ou un bouton du menu le referme (la navigation se fait dans la page).
+    menu.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && header.classList.contains("is-open")) setOpen(false, true);
+    });
+    document.addEventListener("click", function (e) {
+      if (header.classList.contains("is-open") && !header.contains(e.target)) setOpen(false);
+    });
+    var onResize = function () { if (!mq.matches) setOpen(false); };
+    if (mq.addEventListener) mq.addEventListener("change", onResize); else mq.addListener(onResize);
+  }
+
   /* ---------- Onglets de sites (aperçu du hero) ---------- */
   var tablist = document.querySelector("[data-tabs]");
   if (tablist) {

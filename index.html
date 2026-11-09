@@ -60,16 +60,22 @@
       <svg width="30" height="30" viewBox="0 0 120 120" aria-hidden="true"><path d="M12 82 L60 108 L108 82" fill="none" stroke="#1a1830" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 62 L60 88 L108 62" fill="none" stroke="#b4a8ff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 16 L108 42 L60 68 L12 42 Z" fill="#5b3df5" stroke="#5b3df5" stroke-width="12" stroke-linejoin="round"/></svg>
       <span class="brand__name">Layer<span>doc</span></span>
     </a>
-    <nav class="site-nav" aria-label="Navigation principale">
-      <a href="#fonctionnalites">Fonctionnalités</a>
-      <a href="#enterprise">Enterprise</a>
-      <a href="#offres">Offres</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="site-header__actions">
-      <!-- ⚠️ Libellé modifié (maquette : « Code source ») : le code n'est pas publié -->
-      <a class="btn btn--soft" href="#formulaire" data-prefill="waitlist" data-track="menu-liste-attente">Liste d'attente</a>
-      <a class="btn btn--primary btn--sm" href="#formulaire" data-prefill="demo" data-track="menu-demo">Demander une démo</a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="site-menu" aria-expanded="false" hidden>
+      <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    <div class="site-menu" id="site-menu">
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="#fonctionnalites">Fonctionnalités</a>
+        <a href="#enterprise">Enterprise</a>
+        <a href="#offres">Offres</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="site-header__actions">
+        <!-- ⚠️ Libellé modifié (maquette : « Code source ») : le code n'est pas publié -->
+        <a class="btn btn--soft" href="#formulaire" data-prefill="waitlist" data-track="menu-liste-attente">Liste d'attente</a>
+        <a class="btn btn--primary btn--sm" href="#formulaire" data-prefill="demo" data-track="menu-demo">Demander une démo</a>
+      </div>
     </div>
   </div>
 </header>
