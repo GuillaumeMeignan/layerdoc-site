@@ -40,6 +40,46 @@
 .site-nav a { color: var(--ink); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; padding: 0 8px; }
 .site-nav a:hover { color: var(--violet); }
 .site-header__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.site-menu { display: contents; }
+.nav-toggle { display: none; }
+
+/* Burger : le menu devient un panneau déroulant. Actif uniquement si le JS a pris la main
+   (classe .has-toggle), sinon le menu reste visible et empilé. */
+@media (max-width: 900px) {
+  .site-header { position: sticky; top: 0; z-index: 20; }
+  .site-header__inner { flex-wrap: nowrap; padding-block: 8px; }
+  .site-menu { display: flex; flex-direction: column; gap: var(--s-3); flex-basis: 100%; }
+  .site-header:not(.has-toggle) .site-header__inner { flex-wrap: wrap; }
+  .site-nav { flex-direction: column; align-items: stretch; gap: 0; font-size: 17px; }
+  .site-nav a { min-height: 48px; padding: 0 var(--s-2); border-bottom: 1px solid var(--line-soft); }
+  .site-header__actions { flex-direction: column; }
+  .site-header__actions .btn { width: 100%; }
+
+  .has-toggle .nav-toggle {
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+    width: 48px; height: 48px; margin-right: -10px; padding: 0; border: 0; border-radius: var(--r-md);
+    background: transparent; color: var(--ink);
+  }
+  .nav-toggle__bars { position: relative; display: block; width: 22px; height: 16px; }
+  .nav-toggle__bars i { position: absolute; left: 0; width: 100%; height: 2px; border-radius: 2px; background: currentColor; transition: transform 0.2s ease, opacity 0.2s ease, top 0.2s ease; }
+  .nav-toggle__bars i:nth-child(1) { top: 0; }
+  .nav-toggle__bars i:nth-child(2) { top: 7px; }
+  .nav-toggle__bars i:nth-child(3) { top: 14px; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bars i:nth-child(1) { top: 7px; transform: rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bars i:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle__bars i:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+
+  .has-toggle .site-menu {
+    position: absolute; top: 100%; left: 0; right: 0; padding: var(--s-2) var(--gutter) var(--s-5);
+    background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 24px 40px -24px rgba(26, 24, 48, 0.3);
+    max-height: calc(100dvh - 65px); overflow-y: auto;
+  }
+  .has-toggle:not(.is-open) .site-menu { display: none; }
+  [id] { scroll-margin-top: 72px; }
+}
+@media (max-width: 900px) and (prefers-reduced-motion: reduce) {
+  .nav-toggle__bars i { transition: none; }
+}
 
 /* ---------- Hero ---------- */
 .hero { padding-top: 72px; padding-bottom: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; }
@@ -309,11 +349,16 @@
 .legal .todo { font-size: 15px; }
 
 /* ---------- Responsive ---------- */
+/* Tablette : évite la carte orpheline quand la grille passe à 2 colonnes */
+@media (min-width: 581px) and (max-width: 870px) {
+  .grid--260 > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
 @media (max-width: 720px) {
   .section { padding-block: 64px; }
   .band > .container, .support__inner { padding-block: 56px; }
   .ent { padding-block: 64px; }
-  .hero { padding-top: 48px; }
+  .hero { padding-top: 40px; gap: 18px; }
   .preview { padding-bottom: 56px; }
   .offer { padding: 24px; }
   .final, .faq__inner { padding-block: 56px; }
@@ -321,9 +366,47 @@
   .ecard { padding: 20px; }
   .thread { margin-top: 0; max-width: none; }
   .thread__arrow { display: none; }
+
+  /* Hero : CTA pleine largeur, points de réassurance alignés à gauche */
+  .hero__cta { flex-direction: column; align-self: stretch; }
+  .hero__cta .btn { width: 100%; }
+  .hero__points { flex-direction: column; align-items: flex-start; align-self: center; text-align: left; }
+
+  /* Illustration du hero : version mobile allégée.
+     La sidebar n'apporte rien sur petit écran : on garde un simple bandeau d'identité. */
+  .browser { border-radius: var(--r-lg); }
+  .browser__bar { padding: 10px 12px; gap: 10px; }
+  .browser__body { flex-direction: column; flex-wrap: nowrap; }
+  .doc-side { flex: none; flex-direction: row; align-items: center; justify-content: space-between; padding: 12px 16px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .doc-side__head { padding: 0; }
+  .doc-side__search, .doc-side__group { display: none; }
+  .doc-main { flex: none; padding: 20px 16px 22px; gap: var(--s-3); }
+  .doc-main__title { font-size: 24px; }
+  .doc-main__text { font-size: 14.5px; }
+  .facts { grid-template-columns: 1fr 1fr; }
+  .facts > div { border-bottom: 1px solid var(--line); }
+  .facts > div:nth-child(odd) { border-right: 1px solid var(--line); }
+  .facts > div:nth-last-child(-n + 2) { border-bottom: 0; }
+  .tabs { flex-wrap: nowrap; gap: 0; }
+  .tabs button { flex: 1 1 0; min-width: 0; padding: 6px 4px; font-size: 13.5px; line-height: 1.25; text-align: center; }
+}
+
+/* Petits écrans : le tableau d'événements devient une liste de cartes (plus de colonne coupée) */
+@media (max-width: 560px) {
+  .table-wrap { border: 0; overflow: visible; }
+  .events { min-width: 0; display: block; }
+  .events thead { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .events tbody { display: flex; flex-direction: column; gap: var(--s-2); }
+  .events tbody tr { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 6px 10px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--r-md); }
+  .events tbody tr:last-child td { border-bottom: 0; }
+  .events td { padding: 0; border: 0; }
+  .events td:first-child { font-weight: 600; }
+  .events td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; min-width: 0; }
+  .events td:nth-child(3) { grid-column: 2; grid-row: 1; }
+  .events code { overflow-wrap: anywhere; }
+  .site-footer nav { margin-left: -6px; }
 }
 @media (max-width: 480px) {
-  .site-header__actions .btn { flex: 1 1 auto; }
   .brand-mock__nav { flex-basis: 96px; }
 }
 
