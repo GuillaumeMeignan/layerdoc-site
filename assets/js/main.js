@@ -165,23 +165,32 @@
   }
 
   /* ---------- Boutons d'action : mène au formulaire, préremplit, place le focus ---------- */
-  var PREFILL = {
-    waitlist: "Bonjour, je souhaite m'inscrire sur la liste d'attente de la version gratuite de Layerdoc.",
-    demo: "Bonjour, je souhaite une démonstration et un devis pour Layerdoc Enterprise.",
-    project: "Bonjour, je souhaite que vous documentiez mon tracking de A à Z. Voici mon contexte : "
-  };
   var form = document.getElementById("contact-form");
+  // Chaque bouton présélectionne le besoin (open-source ou demo) et préremplit le message.
+  var PREFILL = {
+    waitlist: { need: "open-source", text: "Bonjour, je souhaite m'inscrire sur la liste d'attente de la version gratuite de Layerdoc." },
+    demo: { need: "demo", text: "Bonjour, je souhaite une démonstration et un devis pour Layerdoc Enterprise." },
+    project: { need: "demo", text: "Bonjour, je souhaite que vous documentiez mon tracking de A à Z. Voici mon contexte : " }
+  };
+  var NEED_TEXT = { "open-source": PREFILL.waitlist.text, demo: PREFILL.demo.text };
+  var NEED_LABEL = { "open-source": "Open source (liste d'attente)", demo: "Démo Enterprise" };
+  function setNeed(value) {
+    var radio = form && form.querySelector('input[name="besoin"][value="' + value + '"]');
+    if (radio) radio.checked = true;
+  }
   var thanks = document.getElementById("form-thanks");
   var message = document.getElementById("message");
   var section = document.getElementById("formulaire");
 
   document.querySelectorAll("[data-prefill]").forEach(function (el) {
     el.addEventListener("click", function (e) {
-      var text = PREFILL[el.getAttribute("data-prefill")];
-      if (!text || !message || !section) return;
+      var preset = PREFILL[el.getAttribute("data-prefill")];
+      if (!preset || !message || !section) return;
+      var text = preset.text;
       e.preventDefault();
       // Si le formulaire a déjà été envoyé, on le réaffiche pour une nouvelle demande.
       if (form.hidden) { form.hidden = false; thanks.hidden = true; }
+      setNeed(preset.need);
       message.value = text;
       section.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
       if (history.replaceState) history.replaceState(null, "", "#formulaire");
@@ -189,6 +198,17 @@
       message.setSelectionRange(message.value.length, message.value.length);
     });
   });
+
+  // Changer de besoin adapte le message tant que l'utilisateur ne l'a pas réécrit.
+  if (form) {
+    form.querySelectorAll('input[name="besoin"]').forEach(function (radio) {
+      radio.addEventListener("change", function () {
+        var current = message.value.trim();
+        var untouched = !current || Object.keys(PREFILL).some(function (k) { return PREFILL[k].text.trim() === current; });
+        if (untouched) message.value = NEED_TEXT[radio.value] || "";
+      });
+    });
+  }
 
   /* ---------- Formulaire Web3Forms ---------- */
   if (!form) return;
@@ -219,12 +239,15 @@
     }
 
     var fd = new FormData(form);
+    var need = NEED_LABEL[fd.get("besoin")] || "";
     var payload = {
       access_key: WEB3FORMS_ACCESS_KEY,
-      subject: "Layerdoc : nouvelle demande depuis la landing page",
+      subject: "Layerdoc : nouvelle demande" + (need ? " \u2013 " + (fd.get("besoin") === "demo" ? "Démo Enterprise" : "Open source") : "") + " (landing page)",
       from_name: "Landing page Layerdoc",
       name: fd.get("nom"),
       email: fd.get("email"),
+      telephone: (fd.get("telephone") || "").trim(),
+      besoin: need,
       message: fd.get("message") || "",
       consentement: "Oui",
       botcheck: form.elements.botcheck.checked ? "1" : ""

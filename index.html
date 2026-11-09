@@ -558,8 +558,16 @@ group: Outils
     </div>
     <div class="final__card">
       <form id="contact-form" novalidate aria-label="Formulaire de contact" data-track="formulaire-contact">
+        <fieldset class="need">
+          <legend>Votre besoin</legend>
+          <div class="need__options">
+            <label class="need__opt"><input type="radio" name="besoin" value="open-source" checked><span class="need__box"><b>Open source</b><span>Liste d'attente, gratuit</span></span></label>
+            <label class="need__opt"><input type="radio" name="besoin" value="demo"><span class="need__box"><b>Démo Enterprise</b><span>Démo, devis, accompagnement</span></span></label>
+          </div>
+        </fieldset>
         <label class="field"><span>Prénom et nom</span><input type="text" name="nom" required autocomplete="name"></label>
         <label class="field"><span>E-mail professionnel</span><input type="email" name="email" required autocomplete="email"></label>
+        <label class="field"><span>Téléphone <small>(facultatif)</small></span><input type="tel" name="telephone" id="telephone" autocomplete="tel" inputmode="tel"></label>
         <label class="field"><span>Message</span><textarea name="message" id="message" rows="5" placeholder="Dites-nous en quelques mots ce dont vous avez besoin."></textarea></label>
         <label class="consent"><input type="checkbox" name="consentement" required><span>J'accepte que mes informations servent à me recontacter au sujet de Layerdoc, et pour cela seulement. <a href="legal/confidentialite.html">Politique de confidentialité</a>.</span></label>
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
